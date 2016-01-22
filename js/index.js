@@ -16,12 +16,24 @@ $(document).ready( function () {
 });
 
 function startDigitalClock() {
-  var date = new Date;
-  $('#time-is').html(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+  $('#time-is').html(getDigitalTimeString());
   setInterval(function() {
-		var date = new Date();
-		$('#time-is').html(date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
+		$('#time-is').html(getDigitalTimeString());
 	}, 1000);
+}
+
+function getDigitalTimeString() { // let's get a HH:MM:SS timestring
+	var date = new Date();
+	var seconds = date.getSeconds();
+	var minutes = date.getMinutes();
+	var hours = date.getHours();
+	if (seconds < 10) {
+		seconds = "0" + seconds;
+	}
+	if (minutes < 10) {
+		minutes = "0" + minutes;
+	}
+	return hours+":"+minutes+":"+seconds;
 }
 
 // Sets up a clock using the user's local time
