@@ -6,14 +6,32 @@
 	background: rgba(200,200,200,0.9);
 } */
 
+
+
+body {
+  margin: 0;
+}
+
+.container {
+  background: #3cd19e;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
 .clock {
   border-radius: 50%;
   background: #fff url(../media/img/ios_clock.png) no-repeat center;
-  background-size: 92%; /* var 88% */
-  height: 20em;
+  background-size: 90%;
+  display: inline-block;
+  margin: 1%;
   padding-bottom: 31%;
   position: relative;
-  width: 40em; /* var 20em */
+  top: 50%;
+  width: 31%;
+  opacity: 1;
 }
 
 .clock:after {
@@ -58,7 +76,7 @@
 }
 
 .seconds {
-  background: #000;
+  background: #000; /* rgb(228,56,56); something something red */
   height: 45%;
   left: 49.5%;
   position: absolute;
