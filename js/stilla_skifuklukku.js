@@ -4,11 +4,35 @@ var lastMinute = 0;
 $(document).ready( function () {
 	$('.seconds-container').hide();
 	userDragClock();
+	animateClockAnswers();
 });
+
+function animateClockAnswers() {
+	// if right anwswer then bounce up and down like a nodding head
+	$('.right-answer').click(function() {
+		$('.clock').addClass('animated bounce');
+		$('.right-answer').hide();
+		setTimeout(function() {
+				$('.clock').removeClass('animated bounce');
+				$('.right-answer').show();
+			}, 1000 // tiny wait
+		);
+	});
+	// if wrong anwswer then shake to sides like a head saying no
+	$('.wrong-answer').click(function() {
+		$('.clock').addClass('animated shake');
+		$('.wrong-answer').hide();
+		setTimeout(function() {
+				$('.clock').removeClass('animated shake');
+				$('.wrong-answer').show();
+			}, 1000 // tiny wait
+		);
+	});
+}
 
 function userDragClock() { // dragging functionality:
 	var isMouseDown = false;
-	$(".container")
+	$(".clock")
 	.mousedown(function(e) {
 		isMouseDown = true;
 	})
@@ -25,7 +49,7 @@ function userDragClock() { // dragging functionality:
 	});
 	
 	// for mobile/tablets:
-	$(".container").on("touchmove", function(ev){
+	$(".clock").on("touchmove", function(ev){
 		var e = ev.originalEvent;
 		if(e.touches.length == 1){ // Only deal with one finger
 			var touch = e.touches[0]; // Get the information for finger #1
