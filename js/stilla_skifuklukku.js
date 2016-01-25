@@ -20,17 +20,20 @@ function animateClockAnswers() {
 		setTimeout(function() {
 				$('.clock').removeClass('animated bounce');
 				$('.right-answer').show();
-			}, 1000 // tiny wait
+			}, 2000 // tiny wait
 		);
 	});
+	
 	// if wrong anwswer then shake to sides like a head saying no
+	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
 	$('.wrong-answer').click(function() {
+		audio_wrong_answer.play();
 		$('.clock').addClass('animated shake');
 		$('.wrong-answer').hide();
 		setTimeout(function() {
 				$('.clock').removeClass('animated shake');
 				$('.wrong-answer').show();
-			}, 1000 // tiny wait
+			}, 2000 // tiny wait
 		);
 	});
 }
