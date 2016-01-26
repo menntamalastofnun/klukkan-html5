@@ -132,3 +132,7 @@ body {
     opacity: 1;
 	background-color: #fff;
 }
+
+#sidemenu .btn:focus {
+	background-color: #fff;
+}
