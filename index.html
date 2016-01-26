@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Klukkan</title>
+		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
@@ -12,19 +13,49 @@
     </head>
     <body>
 		<div class="container">
-			<article class="clock">
-			  <div class="hours-container">
-				<div class="hours"></div>
-			  </div>
-			  <div class="minutes-container">
-				<div class="minutes"></div>
-			  </div>
-			  <div class="seconds-container">
-				<div class="seconds"></div>
-			  </div>
-			</article>
-			<p id="digital-watch">Tölvuúr - <span id="time-is">12:00</span></p>
-			<p><a href="stilla_skifuklukku.html">Stilla skífuklukku hér.</a></p>
+			<div class="row">
+				<div class="col-md-2" id="sidemenu">
+					<button type="button" class="btn btn-default  btn-block">
+						<img src="media/img/from-old/button1.png">
+					</button>
+					<a href="stilla_skifuklukku.html" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button2.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button3.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button4.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button5.png">
+					</a>
+					<br>
+					<br>
+					<br>
+					<!-- get it to the bottom -->
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button6.png">
+					</a>
+					
+					<!-- glyphicon glyphicon-repeat	 glyphicon-cog glyphicon glyphicon-ok	-->
+				</div>
+				<div class="col-md-10">
+					<h1>Klukkan</h1>
+					<article class="clock">
+					  <div class="hours-container">
+						<div class="hours"></div>
+					  </div>
+					  <div class="minutes-container">
+						<div class="minutes"></div>
+					  </div>
+					  <div class="seconds-container">
+						<div class="seconds"></div>
+					  </div>
+					</article>
+					<p id="digital-watch">Tölvuúr - <span id="time-is">12:00</span></p>
+				</div>
+			</div>
 		</div>
     </body>
 </html>
