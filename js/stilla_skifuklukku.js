@@ -71,10 +71,11 @@ function userDragClock() { // dragging functionality:
 function xyToDegrees(x, y) { 
 	// in: x,y coordinates of mouse or mobile dragging
 	// out: The "degrees" the mouse is currently dragging to in a coordinate system where 12 o clock is 0 degrees and the center of the clock is (0,0)
-	var clock_center_x = $('.clock').offset().left + $('.clock').width()/2;
-	var clock_center_y = $('.clock').offset().top + $('.hours-container').height()/2;
+	
+	var rect = $('.clock')[0].getBoundingClientRect();
+	var clock_center_x = rect.width/2;
+	var clock_center_y = rect.height/2;
 	var center = new Array(clock_center_x, clock_center_y); // center of clock
-	console.log(center)
 	var x_c = x - center[0];
 	var y_c = center[1] - y;
 	var radians = Math.atan2( x_c, y_c); 

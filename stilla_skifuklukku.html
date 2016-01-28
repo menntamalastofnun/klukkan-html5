@@ -14,21 +14,52 @@
     </head>
     <body>
 		<div class="container">
-			<article class="clock">
-			  <div class="hours-container">
-				<div class="hours"></div>
-			  </div>
-			  <div class="minutes-container">
-				<div class="minutes"></div>
-			  </div>
-			  <div class="seconds-container">
-				<div class="seconds"></div>
-			  </div>
-			</article>
-			<p id="digital-watch">Tölvuúr - <span id="time-is">12:00</span></p>
-			<p><a href="index.html">Klukkur sem ganga hér.</a></p>
-			<p class="right-answer">Smelltu hér: <u>Rétt svar</u></p>
-			<p class="wrong-answer">Smelltu hér: <u>Vitlaust svar</u></p>
+			<div class="row">
+				<div class="col-md-2" id="sidemenu">
+					<a href="index.html" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button1.png">
+					</a>
+					<a href="stilla_skifuklukku.html" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button2.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button3.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button4.png">
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button5.png">
+					</a>
+					<br>
+					<br>
+					<br>
+					<!-- get it to the bottom -->
+					<a href="" class="btn btn-default btn-block" role="button">
+						<img src="media/img/from-old/button6.png">
+					</a>
+					
+					<!-- glyphicon glyphicon-repeat	 glyphicon-cog glyphicon glyphicon-ok	-->
+				</div>
+				<div class="col-md-10">
+					<h1>Klukkan</h1>
+					<article class="clock">
+					  <div class="hours-container">
+						<div class="hours"></div>
+					  </div>
+					  <div class="minutes-container">
+						<div class="minutes"></div>
+					  </div>
+					  <div class="seconds-container">
+						<div class="seconds"></div>
+					  </div>
+					</article>
+					<p id="digital-watch">Tölvuúr - <span id="time-is">12:00</span></p>
+					
+					<p class="right-answer">Smelltu hér: <u>Rétt svar</u></p>
+					<p class="wrong-answer">Smelltu hér: <u>Vitlaust svar</u></p>
+				</div>
+			</div>
 		</div>
     </body>
 </html>
