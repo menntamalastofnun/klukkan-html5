@@ -61,7 +61,8 @@ function initLocalClock() {
   ];
   // Loop through each of these hands to set their angle
   for (var j = 0; j < hands.length; j++) {
-    var element = $('.' + hands[j].hand);
+    var element = $('.' + hands[j].hand + "-container");
+	console.log(hands[j].hand)
 	rotateHand(element, hands[j].angle);
 	// If this is a minute hand, note the seconds position (to calculate minute position later)
 	if (hands[j].hand === 'minutes') {
