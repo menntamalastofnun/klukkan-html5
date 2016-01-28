@@ -46,9 +46,8 @@ function userDragClock() { // dragging functionality:
 	})
 	.mousemove(function(e) {
 		if(isMouseDown) {
-			var offset = $(this).offset();
-			var x = e.pageX - offset.left;
-			var y = e.pageY - offset.top;
+			var x = e.pageX;
+			var y = e.pageY;
 			xyToDegrees(x,y);
 		}
 	 })
@@ -73,8 +72,8 @@ function xyToDegrees(x, y) {
 	// out: The "degrees" the mouse is currently dragging to in a coordinate system where 12 o clock is 0 degrees and the center of the clock is (0,0)
 	
 	var rect = $('.clock')[0].getBoundingClientRect();
-	var clock_center_x = rect.width/2;
-	var clock_center_y = rect.height/2;
+	var clock_center_x = rect.left + rect.width/2;
+	var clock_center_y = rect.top + rect.height/2;
 	var center = new Array(clock_center_x, clock_center_y); // center of clock
 	var x_c = x - center[0];
 	var y_c = center[1] - y;
