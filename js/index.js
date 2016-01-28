@@ -67,7 +67,7 @@ function initLocalClock() {
 	// If this is a minute hand, note the seconds position (to calculate minute position later)
 	if (hands[j].hand === 'minutes') {
 	  // elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
-	  element[0].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
+	  element[0].setAttribute('data-second-angle', hands[j + 1].angle);
 	}
   }
 }
@@ -78,13 +78,18 @@ function initLocalClock() {
 function moveSecondHand() {
 	// var container = document.querySelectorAll('.seconds-container');
 	var container = $('.seconds-container');
+	
+	var date = new Date(); // Setting it up again (instead of sending it between)
+	var seconds = date.getSeconds();	
+	var angle = (seconds * 6);
+	
 	setInterval(function() {
-		if (container.angle === undefined) {
-			container.angle = 6;
+		if (angle === undefined) {
+			angle = 6;
 		} else {
-			container.angle += 6;
+			angle += 6;
 		}
-		rotateHand(container, container.angle);
+		rotateHand(container, angle);
 	}, 1000);
 }
 
