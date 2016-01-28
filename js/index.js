@@ -61,14 +61,13 @@ function initLocalClock() {
   ];
   // Loop through each of these hands to set their angle
   for (var j = 0; j < hands.length; j++) {
-    var elements = $('.' + hands[j].hand);
-    for (var k = 0; k < elements.length; k++) {
-		rotateHand(elements[k], hands[j].angle);
-        // If this is a minute hand, note the seconds position (to calculate minute position later)
-        if (hands[j].hand === 'minutes') {
-          elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
-        }
-    }
+    var element = $('.' + hands[j].hand);
+	rotateHand(element, hands[j].angle);
+	// If this is a minute hand, note the seconds position (to calculate minute position later)
+	if (hands[j].hand === 'minutes') {
+	  // elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
+	  element[0].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
+	}
   }
 }
 
