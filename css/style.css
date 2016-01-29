@@ -21,6 +21,12 @@ body {
   overflow: hidden;
 }
 
+.nopadding {
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+   margin: 0 !important;
+}
+
 .clock {
   border-radius: 50%;
   background: #fff url(../media/img/ios_clock.png) no-repeat center;
@@ -121,6 +127,15 @@ body {
 	border-radius: 10px;
 	border-bottom: 3px solid #ccc;;
 	border-left: 3px solid #ccc;;
+	margin-bottom: 10px;
+}
+
+#right-side-buttons .btn:first-child{
+	margin-top: 180px;
+}
+
+#sidemenu  .bottom {
+	margin-top: 100px;
 }
 
 #sidemenu .btn img {
@@ -146,4 +161,9 @@ body {
 #gamename {
 	font-size: 50px;
 	color:red;
+	margin-top: 0px;
+}
+
+#gameinstructions {
+	margin-top:0px;
 }
