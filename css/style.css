@@ -115,10 +115,12 @@ body {
 	margin:25px;
 }
 
-#sidemenu .btn {
+#sidemenu .btn, #right-side-buttons .btn {
 	width:80px;
 	height:80px;
 	border-radius: 10px;
+	border-bottom: 3px solid #ccc;;
+	border-left: 3px solid #ccc;;
 }
 
 #sidemenu .btn img {
@@ -126,14 +128,19 @@ body {
 	height:60px;
 }
 
-#sidemenu .btn:hover {
+#sidemenu .btn:hover, #right-side-buttons .btn:hover {
     transform: scale(1.08, 1.08);
     opacity: 1;
 	background-color: #fff;
 }
 
-#sidemenu .btn:focus {
+#sidemenu .btn:focus, #right-side-buttons .btn:focus {
 	background-color: #fff;
+}
+
+#right-side-buttons .glyphicon {
+	font-size: 30px;
+	padding-top: 15px;
 }
 
 #gamename {
