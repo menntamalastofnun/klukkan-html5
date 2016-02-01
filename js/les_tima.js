@@ -11,7 +11,7 @@ $(document).ready( function () {
 	userDragClock();
 	
 	$('#play-sound-again').click(function() {
-		var audio = $('#play-sound-again').attr("data-audio-link");
+		var audio = new Audio("media/"+$('#play-sound-again').attr("data-audio-link"));
 		audio.play();
 	});
 	
