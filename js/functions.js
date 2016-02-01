@@ -27,3 +27,9 @@ function getRotationDegrees(obj) {
     } else { var angle = 0; }
     return (angle < 0) ? angle + 360 : angle;
 }
+
+// Returns a random integer between min (included) and max (excluded)
+// Using Math.round() will give you a non-uniform distribution!
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}

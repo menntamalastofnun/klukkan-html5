@@ -52,11 +52,11 @@ body {
 /* let's position everything over the clockface */
 
   position: absolute;
-  top: 160px;
+  top: 162px;	
 	/* top: 204px; */
   right: 0;
   bottom: 0;
-  left: 80px;
+  left: 82px;
 	width:60%;
 	height:60%;
 }
