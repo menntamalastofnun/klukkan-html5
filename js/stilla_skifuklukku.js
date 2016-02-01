@@ -9,7 +9,7 @@ $(document).ready( function () {
 		var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
 		var clockface_24_hour_format = clockface_hour + 12; // no need to do modulus something.
 		var clockface_minutes = Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
-		var digitalclock_time = $('#cpu-clock-time').html().split(":");
+		var digitalclock_time = $('#cpu-clock-time-minutes').html().split(":");
 		// let's compare and check answer
 		if( (digitalclock_time[0] == clockface_hour || digitalclock_time[0] == clockface_24_hour_format)
 			&& clockface_minutes == digitalclock_time[1] ) {
@@ -89,7 +89,7 @@ function xyToDegrees(x, y) {
 	
 	var rect = $('.clock')[0].getBoundingClientRect();
 	var clock_center_x = rect.left + rect.width/2;
-	var hardcode_img_offset = 90; // hardcoding 90, image is not rectangular
+	var hardcode_img_offset = 70; // hardcoding, image is not rectangular
 	var clock_center_y = rect.top + rect.height/2 + hardcode_img_offset;
 	var center = new Array(clock_center_x, clock_center_y); // center of clock
 	var x_c = x - center[0];
@@ -133,5 +133,5 @@ function digitalClock(degrees) {
 	var minute = Math.floor( (degrees % 360) / 6);
 	if (minute < 0 ) minute += 60;
 	if (minute < 10) minute = "0" + minute;
-	$('#cpu-clock-time').html(hour + ":" + minute);
+	$('#cpu-clock-time-minutes').html(hour + ":" + minute);
 } */

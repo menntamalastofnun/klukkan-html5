@@ -16,9 +16,9 @@ $(document).ready( function () {
 });
 
 function startDigitalClock() {
-  $('#cpu-clock-time').html(getDigitalTimeString());
+  $('#cpu-clock-time-seconds').html(getDigitalTimeString());
   setInterval(function() {
-		$('#cpu-clock-time').html(getDigitalTimeString());
+		$('#cpu-clock-time-seconds').html(getDigitalTimeString());
 	}, 1000);
 }
 

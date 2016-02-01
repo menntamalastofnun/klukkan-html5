@@ -52,7 +52,8 @@ body {
 /* let's position everything over the clockface */
 
   position: absolute;
-  top: 204px;
+  top: 160px;
+	/* top: 204px; */
   right: 0;
   bottom: 0;
   left: 80px;
@@ -172,19 +173,18 @@ border: 1px solid white;
 	height: 393px;
 }
 
-#cpu-clock-time {
-	position: absolute;
-	top: 220px;
-	left: 85px;
-	font-family: 'Orbitron', sans-serif;
-	font-size: 25px;
-}
-
-#cpu-clock-time-2 {
+#cpu-clock-time-seconds, #cpu-clock-time-minutes {
 	position: absolute;
 	top: 160px;
-	left: 85px;
+	left: 90px;
 	font-family: 'Orbitron', sans-serif;
+}
+
+#cpu-clock-time-seconds {
+	font-size: 25px; /* smaller font to make room for seconds */
+}
+
+#cpu-clock-time-minutes {
 	font-size: 35px;
 }
 
@@ -207,4 +207,12 @@ border: 1px solid white;
 .digital-clock-delete {
 	color:grey;
 	font-weight:bold;
+}
+
+.index-description-cpu-text {
+	padding-left: 100px;
+}
+
+.index-description-clockface-text {
+	padding-left: 135px;
 }
