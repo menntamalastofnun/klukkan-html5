@@ -180,6 +180,14 @@ border: 1px solid white;
 	font-size: 25px;
 }
 
+#cpu-clock-time-2 {
+	position: absolute;
+	top: 160px;
+	left: 85px;
+	font-family: 'Orbitron', sans-serif;
+	font-size: 35px;
+}
+
 .clockface-img {
 	position: relative;
 	width: 414px;
@@ -188,4 +196,15 @@ border: 1px solid white;
 
 #game-right-div {
 	width:444px;
+}
+
+.digital-clock-input {
+	margin-left:5px;
+	margin-bottom:5px;
+	font-size:20px;
+}
+
+.digital-clock-delete {
+	color:grey;
+	font-weight:bold;
 }

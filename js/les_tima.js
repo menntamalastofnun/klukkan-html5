@@ -10,5 +10,3 @@ $(document).ready( function () {
 	});
 	
 });
-
-console.log("derp")
