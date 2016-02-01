@@ -7,14 +7,15 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
+		<script src="lib/jquery.xml2json.js"></script>
 		<script src="js/functions.js"></script>
-		<script src="js/stilla_tolvuur.js"></script>
+		<script src="js/les_tima.js"></script>
 		<link rel="icon" type="image/png" href="media/img/favicon.png" />
     </head>
     <body>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-2 col-sm-2" id="sidemenu">
+				<div class="col-md-1 col-sm-1 nopadding" id="sidemenu">
 					<a href="index.html" class="btn btn-default btn-block" role="button">
 						<img src="media/img/from-old/button1.png">
 					</a>
@@ -30,28 +31,55 @@
 					<a href="les_tima.html" class="btn btn-default btn-block" role="button">
 						<img src="media/img/from-old/button5.png">
 					</a>
-					<br>
-					<br>
-					<br>
 					<!-- get it to the bottom -->
-					<a href="" class="btn btn-default btn-block" role="button">
+					<a href="" class="btn btn-default btn-block bottom" role="button">
 						<img src="media/img/from-old/button6.png">
 					</a>
 				</div>
 				<div class="col-md-10 col-sm-10">
-					<h1>Klukkan</h1>
-					<article class="clock">
-					  <div class="hours-container">
-						<div class="hours"></div>
-					  </div>
-					  <div class="minutes-container">
-						<div class="minutes"></div>
-					  </div>
-					  <div class="seconds-container">
-						<div class="seconds"></div>
-					  </div>
-					</article>
-					<p id="digital-watch">Tölvuúr - <span id="time-is">12:00</span></p>
+					<row>
+						<div class="col-md-9 col-sm-9 text-center">
+							<h1 id="gamename">Klukkan</h1>
+						</div>
+					</row>
+					<row>
+						<div class="col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1">
+							<h3 id="gameinstructions">Stilltu tölvuúrið eftir skífuklukkunni.</h3>
+						</div>
+					</row>
+					<row>
+						<div class="col-md-5 col-sm-5" id="game-left-div">
+						    <img src="media/img/from-old/tolvu-ur-stort.png" class="img-responsive cpu-clock-img">
+						    <!--
+							<article class="clock">
+							  <div class="hours-container">
+								<div class="hours"></div>
+							  </div>
+							  <div class="minutes-container">
+								<div class="minutes"></div>
+							  </div>
+							  <div class="seconds-container">
+								<div class="seconds"></div>
+							  </div>
+							</article>
+							-->
+						</div>
+						<div class="col-md-7 col-sm-7" id="game-right-div">
+							<img src="media/img/from-old/skifu-klukka-stor.png" class="img-responsive clockface-img">
+						</div>
+					</row>
+				</div>
+				<div class="col-md-1 col-sm-1 nopadding" id="right-side-buttons">
+					<a href="" class="btn btn-default btn-block" role="button">
+						<span class="glyphicon glyphicon-ok"></span>
+					</a>
+					<a href="" class="btn btn-default btn-block" role="button">
+						<!-- a few glyphicons come to mind: refresh for instance, can't use X because it used to mean "home" -->
+						<span class="glyphicon glyphicon-fast-forward"></span>
+					</a>
+					<a href="index.html" class="btn btn-default btn-block" role="button">
+						<span class="glyphicon glyphicon-home"></span>
+					</a>
 				</div>
 			</div>
 		</div>

@@ -108,19 +108,6 @@ body {
   transition: transform 0.2s cubic-bezier(.4,2.08,.55,.44);
 }
 
-#digital-watch {
-	padding: 25px;
-	width: 550px;
-	border: 5px solid navy;
-}
-
-#time-is {
-	font-family: 'Orbitron', sans-serif;
-	font-size: 60px;
-	padding: 25px;
-	margin:25px;
-}
-
 #sidemenu .btn, #right-side-buttons .btn {
 	width:80px;
 	height:80px;
@@ -134,7 +121,7 @@ body {
 	margin-top: 180px;
 }
 
-#sidemenu  .bottom {
+#sidemenu .bottom, .margin-top-100 {
 	margin-top: 100px;
 }
 
@@ -158,6 +145,11 @@ body {
 	padding-top: 15px;
 }
 
+.glyphicon-volume-up {
+	font-size: 70px;
+	padding-top: 30px;
+}
+
 #gamename {
 	font-size: 50px;
 	color:red;
@@ -166,4 +158,37 @@ body {
 
 #gameinstructions {
 	margin-top:0px;
+}
+
+#game-left-div {
+	position: relative;
+}
+
+.cpu-clock-img {
+	position: relative;
+	max-height:500px;
+	margin-top: 15px;
+}
+
+#digital-watch {
+	padding: 25px;
+	width: 550px;
+	border: 5px solid navy;
+}
+
+#time-is {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 60px;
+	padding: 25px;
+	margin:25px;
+}
+
+#cpu-clock-time {
+	font-family: 'Orbitron', sans-serif;
+	font-size: 25px;
+}
+
+.clockface-img {
+	position: relative;
+	max-height: 650px;
 }

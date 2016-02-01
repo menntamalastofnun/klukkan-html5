@@ -16,9 +16,15 @@ $(document).ready( function () {
 });
 
 function startDigitalClock() {
-  $('#time-is').html(getDigitalTimeString());
+	$('#cpu-clock-time').css('position', 'absolute');
+	var ypos = $('.cpu-clock-img').height()/2 + $('.cpu-clock-img').position().top;
+	ypos += "px";
+	$('#cpu-clock-time').css('top', ypos);
+	$('#cpu-clock-time').css('left', '100px');
+	
+  $('#cpu-clock-time').html(getDigitalTimeString());
   setInterval(function() {
-		$('#time-is').html(getDigitalTimeString());
+		$('#cpu-clock-time').html(getDigitalTimeString());
 	}, 1000);
 }
 
@@ -62,7 +68,6 @@ function initLocalClock() {
   // Loop through each of these hands to set their angle
   for (var j = 0; j < hands.length; j++) {
     var element = $('.' + hands[j].hand + "-container");
-	console.log(hands[j].hand)
 	rotateHand(element, hands[j].angle);
 	// If this is a minute hand, note the seconds position (to calculate minute position later)
 	if (hands[j].hand === 'minutes') {
@@ -113,14 +118,19 @@ function setUpMinuteHand() {
  * Do the first minute's rotation
  */
 function moveMinuteHand(container) {
-	rotateHand(container, 6); // 6 degrees rotation
+	var date = new Date(); // Setting it up again (instead of sending it between)
+	var minutes = date.getMinutes();
+	container.angle = (minutes * 6);
+	rotateHand(container, container.angle); // first minute up
 	// Then continue with a 60 second interval
 	setInterval(function() {
+		console.log(container.angle)
 		if (container.angle === undefined) {
 			container.angle = 12;
 		} else {
 			container.angle += 6;
 		}
+		console.log(container.angle)
 		rotateHand(container, container.angle);
-	}, 60000);
+	}, 60000, container);
 }
