@@ -3,6 +3,10 @@ var lastMinute = 0;
 
 $(document).ready( function () {
 	$('.seconds-container').hide();
+	var audio = new Audio('media/audio/stilla_skifuklukku.mp3');
+	audio.play();
+	
+	getNextQuestion();
 	userDragClock();
 	
 	$('#submit-answer').click( function() {
@@ -14,11 +18,15 @@ $(document).ready( function () {
 		if( (digitalclock_time[0] == clockface_hour || digitalclock_time[0] == clockface_24_hour_format)
 			&& clockface_minutes == digitalclock_time[1] ) {
 				animateRightAnswer();
-				// and get new time to try more.... see xml
+				getNextQuestion();
 		}
 		else {
 			animateWrongAnswer();
-		}	
+		}
+	});
+	
+	$('#next-question').click( function() { 
+		getNextQuestion();
 	});
 	
 	// try to prevent ipad scrolling
@@ -27,15 +35,27 @@ $(document).ready( function () {
 	}
 });
 
+function getNextQuestion() {
+	// XML with text, audio, hours, minutes:
+	$.get('times1.xml', function(xml){ 
+		var times = $.xml2json(xml); 
+		var random = getRandomInt(0, times.time.length);
+		var json = times.time[random]; 
+		
+		$('#cpu-clock-time-minutes').html(json.hours + ":" + json.minutes);
+	});
+}
+
 function animateRightAnswer() {
+	// missing: audio for "jibby"
 	$('.clock').addClass('animated bounce');
 	$('.clockface-img').addClass('animated bounce');
-	$('.right-answer').hide();
+	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
 	setTimeout(function() {
 			$('.clock').removeClass('animated bounce');
 			$('.clockface-img').removeClass('animated bounce');
-			$('.right-answer').show();
-		}, 2000 // tiny wait
+			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
 	);
 }
 
@@ -45,12 +65,12 @@ function animateWrongAnswer() {
 	audio_wrong_answer.play();
 	$('.clock').addClass('animated shake');
 	$('.clockface-img').addClass('animated shake');
-	$('.wrong-answer').hide();
+	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-angry.png");
 	setTimeout(function() {
 			$('.clock').removeClass('animated shake');
 			$('.clockface-img').removeClass('animated shake');
-			$('.wrong-answer').show();
-		}, 2000 // tiny wait
+			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
 	);
 }
 
