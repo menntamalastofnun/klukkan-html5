@@ -1,3 +1,6 @@
+
+// These variables are the troublemakers: find a way to do this differently
+// so the code can be reused in les_tima.js
 var turned_full_circles = 0;
 var lastMinute = 0;
 
@@ -17,22 +20,17 @@ $(document).ready( function () {
 		// let's compare and check answer
 		if( (digitalclock_time[0] == clockface_hour || digitalclock_time[0] == clockface_24_hour_format)
 			&& clockface_minutes == digitalclock_time[1] ) {
-				animateRightAnswer();
+				clockfaceAnimateRightAnswer();
 				getNextQuestion();
 		}
 		else {
-			animateWrongAnswer();
+			clockfaceAnimateWrongAnswer();
 		}
 	});
 	
 	$('#next-question').click( function() { 
 		getNextQuestion();
 	});
-	
-	// try to prevent ipad scrolling
-	document.ontouchmove = function(e){ 
-		e.preventDefault(); 
-	}
 });
 
 function getNextQuestion() {
@@ -46,64 +44,11 @@ function getNextQuestion() {
 	});
 }
 
-function animateRightAnswer() {
-	// missing: audio for "jibby"
-	$('.clock').addClass('animated bounce');
-	$('.clockface-img').addClass('animated bounce');
-	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
-	setTimeout(function() {
-			$('.clock').removeClass('animated bounce');
-			$('.clockface-img').removeClass('animated bounce');
-			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
-		}, 1000 // tiny wait
-	);
-}
-
-function animateWrongAnswer() {
-	// if wrong anwswer then shake to sides like a head saying no
-	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
-	audio_wrong_answer.play();
-	$('.clock').addClass('animated shake');
-	$('.clockface-img').addClass('animated shake');
-	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-angry.png");
-	setTimeout(function() {
-			$('.clock').removeClass('animated shake');
-			$('.clockface-img').removeClass('animated shake');
-			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
-		}, 1000 // tiny wait
-	);
-}
-
-function userDragClock() { // dragging functionality:
-	var isMouseDown = false;
-	$(".clock")
-	.mousedown(function(e) {
-		isMouseDown = true;
-	})
-	.mousemove(function(e) {
-		if(isMouseDown) {
-			var x = e.pageX;
-			var y = e.pageY;
-			xyToDegrees(x,y);
-		}
-	 })
-	.mouseup(function() {
-		isMouseDown = false;
-	});
-	
-	// for mobile/tablets:
-	$(".clock").on("touchmove", function(ev){
-		var e = ev.originalEvent;
-		if(e.touches.length == 1){ // Only deal with one finger
-			var touch = e.touches[0]; // Get the information for finger #1
-			var x = touch.pageX;
-			var y = touch.pageY;
-			xyToDegrees(x,y)
-		}
-	});
-}
-
 function xyToDegrees(x, y) { 
+	/*
+	 note: troublemaker variables: lastMinute and turned_full_circles...
+	 how to rewrite?
+	*/
 	// in: x,y coordinates of mouse or mobile dragging
 	// out: The "degrees" the mouse is currently dragging to in a coordinate system where 12 o clock is 0 degrees and the center of the clock is (0,0)
 	
@@ -131,27 +76,5 @@ function xyToDegrees(x, y) {
 	lastMinute = minutes;
 	degrees += turned_full_circles*360;
 	
-	changeClocks(degrees);
+	setupClockMinuteHourHands(degrees);
 }
-
-function changeClocks(degrees) {
-	var minute_degrees = Math.floor(degrees/6)*6; // just a visual bonus: using degrees that point to a minute, otherwise degrees itself is good enough.
-	rotateHand($('.minutes-container'), minute_degrees);
-	
-	var hour_degrees = degrees/12;
-	rotateHand($('.hours-container'), hour_degrees);
-	
-	// digitalClock(degrees);
-}
-
-/* 
-function digitalClock(degrees) {
-	var hour = 12 + Math.floor(degrees/360);
-	if (hour < 0) hour +=24;
-	if (hour >= 24) hour -= 24;
-	if (hour == 0) hour = "00";
-	var minute = Math.floor( (degrees % 360) / 6);
-	if (minute < 0 ) minute += 60;
-	if (minute < 10) minute = "0" + minute;
-	$('#cpu-clock-time-minutes').html(hour + ":" + minute);
-} */

@@ -33,3 +33,74 @@ function getRotationDegrees(obj) {
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
+
+// if right answer then bounce like a head nodding
+function clockfaceAnimateRightAnswer() {
+	// missing: audio for "jibby"
+	$('.clock').addClass('animated bounce');
+	$('.clockface-img').addClass('animated bounce');
+	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	setTimeout(function() {
+			$('.clock').removeClass('animated bounce');
+			$('.clockface-img').removeClass('animated bounce');
+			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
+	);
+}
+
+// if wrong anwswer then shake to sides like a head saying no
+function clockfaceAnimateWrongAnswer() {
+	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
+	audio_wrong_answer.play();
+	$('.clock').addClass('animated shake');
+	$('.clockface-img').addClass('animated shake');
+	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-angry.png");
+	setTimeout(function() {
+			$('.clock').removeClass('animated shake');
+			$('.clockface-img').removeClass('animated shake');
+			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
+	);
+}
+
+function userDragClock() { // dragging functionality:
+	var isMouseDown = false;
+	$(".clock")
+	.mousedown(function(e) {
+		isMouseDown = true;
+	})
+	.mousemove(function(e) {
+		if(isMouseDown) {
+			var x = e.pageX;
+			var y = e.pageY;
+			xyToDegrees(x, y);
+		}
+	 })
+	.mouseup(function() {
+		isMouseDown = false;
+	});
+	
+	// for mobile/tablets:
+	$(".clock").on("touchmove", function(ev){
+		var e = ev.originalEvent;
+		if(e.touches.length == 1){ // Only deal with one finger
+			var touch = e.touches[0]; // Get the information for finger #1
+			var x = touch.pageX;
+			var y = touch.pageY;
+			xyToDegrees(x, y);
+		}
+	});
+	
+	// try to prevent ipad scrolling
+	document.ontouchmove = function(e){ 
+		e.preventDefault(); 
+	}
+}
+
+function setupClockMinuteHourHands(degrees) {
+	var minute_degrees = Math.floor(degrees/6)*6; // just a visual bonus: using degrees that point to a minute, otherwise degrees itself is good enough.
+	rotateHand($('.minutes-container'), minute_degrees);
+	
+	var hour_degrees = degrees/12;
+	rotateHand($('.hours-container'), hour_degrees);
+}

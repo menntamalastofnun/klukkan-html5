@@ -139,6 +139,14 @@ border: 1px solid white;
 	background-color: #fff;
 }
 
+#play-sound-again:hover {
+	transform: scale(1.05, 1.05);
+}
+
+#play-sound-again:active {
+	transform: scale(0.95, 0.95);
+}
+
 #sidemenu .btn:focus, #right-side-buttons .btn:focus {
 	background-color: #fff;
 }
