@@ -28,18 +28,9 @@ body {
 }
 
 .clock {
-  border-radius: 50%;
-  background: #fff url(../media/img/ios_clock.png) no-repeat center;
-  background-size: 90%;
-  display: inline-block;
-  margin: 1%;
-  padding-bottom: 31%;
-  position: relative;
-  top: 50%;
-  width: 31%;
-  opacity: 1;
 }
 
+/*
 .clock:after {
   background: #000;
   border-radius: 50%;
@@ -50,14 +41,18 @@ body {
   width: 5%;
   height: 5%;
   z-index: 10;
-}
+} */
 
 .minutes-container, .hours-container, .seconds-container {
+/* let's position everything over the clockface */
+
   position: absolute;
-  top: 0;
+  top: 204px;
   right: 0;
   bottom: 0;
-  left: 0;
+  left: 80px;
+	width:60%;
+	height:60%;
 }
 
 .hours {
@@ -67,7 +62,8 @@ body {
   position: absolute;
   top: 30%;
   transform-origin: 50% 100%;
-  width: 2.5%;
+  width: 4%;
+	border: 1px solid white;
 }
 
 .minutes {
@@ -77,11 +73,12 @@ body {
   position: absolute;
   top: 10%;
   transform-origin: 50% 100%;
-  width: 2%;
+  width: 3.5%;
+border: 1px solid white;
 }
 
 .seconds {
-  background: #000; /* rgb(228,56,56); something something red */
+  background: rgb(228,56,56);
   height: 45%;
   left: 49.5%;
   position: absolute;
@@ -166,8 +163,8 @@ body {
 
 .cpu-clock-img {
 	position: relative;
-	max-height:500px;
-	margin-top: 15px;
+	width: 287px;
+	height: 393px;
 }
 
 #digital-watch {
@@ -184,11 +181,19 @@ body {
 }
 
 #cpu-clock-time {
+	position: absolute;
+	top: 220px;
+	left: 85px;
 	font-family: 'Orbitron', sans-serif;
 	font-size: 25px;
 }
 
 .clockface-img {
 	position: relative;
-	max-height: 650px;
+	width: 414px;
+	height: 518px;
+}
+
+#game-right-div {
+	width:444px;
 }

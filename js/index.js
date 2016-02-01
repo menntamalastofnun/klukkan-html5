@@ -16,12 +16,6 @@ $(document).ready( function () {
 });
 
 function startDigitalClock() {
-	$('#cpu-clock-time').css('position', 'absolute');
-	var ypos = $('.cpu-clock-img').height()/2 + $('.cpu-clock-img').position().top;
-	ypos += "px";
-	$('#cpu-clock-time').css('top', ypos);
-	$('#cpu-clock-time').css('left', '100px');
-	
   $('#cpu-clock-time').html(getDigitalTimeString());
   setInterval(function() {
 		$('#cpu-clock-time').html(getDigitalTimeString());
