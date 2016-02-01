@@ -4,7 +4,22 @@ var lastMinute = 0;
 $(document).ready( function () {
 	$('.seconds-container').hide();
 	userDragClock();
-	animateClockAnswers();
+	
+	$('#submit-answer').click( function() {
+		var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
+		var clockface_24_hour_format = clockface_hour + 12; // no need to do modulus something.
+		var clockface_minutes = Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
+		var digitalclock_time = $('#cpu-clock-time').html().split(":");
+		// let's compare and check answer
+		if( (digitalclock_time[0] == clockface_hour || digitalclock_time[0] == clockface_24_hour_format)
+			&& clockface_minutes == digitalclock_time[1] ) {
+				animateRightAnswer();
+				// and get new time to try more.... see xml
+		}
+		else {
+			animateWrongAnswer();
+		}	
+	});
 	
 	// try to prevent ipad scrolling
 	document.ontouchmove = function(e){ 
@@ -12,30 +27,31 @@ $(document).ready( function () {
 	}
 });
 
-function animateClockAnswers() {
-	// if right anwswer then bounce up and down like a nodding head
-	$('.right-answer').click(function() {
-		$('.clock').addClass('animated bounce');
-		$('.right-answer').hide();
-		setTimeout(function() {
-				$('.clock').removeClass('animated bounce');
-				$('.right-answer').show();
-			}, 2000 // tiny wait
-		);
-	});
-	
+function animateRightAnswer() {
+	$('.clock').addClass('animated bounce');
+	$('.clockface-img').addClass('animated bounce');
+	$('.right-answer').hide();
+	setTimeout(function() {
+			$('.clock').removeClass('animated bounce');
+			$('.clockface-img').removeClass('animated bounce');
+			$('.right-answer').show();
+		}, 2000 // tiny wait
+	);
+}
+
+function animateWrongAnswer() {
 	// if wrong anwswer then shake to sides like a head saying no
 	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
-	$('.wrong-answer').click(function() {
-		audio_wrong_answer.play();
-		$('.clock').addClass('animated shake');
-		$('.wrong-answer').hide();
-		setTimeout(function() {
-				$('.clock').removeClass('animated shake');
-				$('.wrong-answer').show();
-			}, 2000 // tiny wait
-		);
-	});
+	audio_wrong_answer.play();
+	$('.clock').addClass('animated shake');
+	$('.clockface-img').addClass('animated shake');
+	$('.wrong-answer').hide();
+	setTimeout(function() {
+			$('.clock').removeClass('animated shake');
+			$('.clockface-img').removeClass('animated shake');
+			$('.wrong-answer').show();
+		}, 2000 // tiny wait
+	);
 }
 
 function userDragClock() { // dragging functionality:
@@ -73,7 +89,8 @@ function xyToDegrees(x, y) {
 	
 	var rect = $('.clock')[0].getBoundingClientRect();
 	var clock_center_x = rect.left + rect.width/2;
-	var clock_center_y = rect.top + rect.height/2;
+	var hardcode_img_offset = 90; // hardcoding 90, image is not rectangular
+	var clock_center_y = rect.top + rect.height/2 + hardcode_img_offset;
 	var center = new Array(clock_center_x, clock_center_y); // center of clock
 	var x_c = x - center[0];
 	var y_c = center[1] - y;
@@ -104,9 +121,10 @@ function changeClocks(degrees) {
 	var hour_degrees = degrees/12;
 	rotateHand($('.hours-container'), hour_degrees);
 	
-	digitalClock(degrees);
+	// digitalClock(degrees);
 }
 
+/* 
 function digitalClock(degrees) {
 	var hour = 12 + Math.floor(degrees/360);
 	if (hour < 0) hour +=24;
@@ -115,5 +133,5 @@ function digitalClock(degrees) {
 	var minute = Math.floor( (degrees % 360) / 6);
 	if (minute < 0 ) minute += 60;
 	if (minute < 10) minute = "0" + minute;
-	$('#time-is').html(hour + ":" + minute);
-}
+	$('#cpu-clock-time').html(hour + ":" + minute);
+} */

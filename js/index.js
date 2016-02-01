@@ -33,6 +33,7 @@ function getDigitalTimeString() { // let's get a HH:MM:SS timestring
 	if (minutes < 10) {
 		minutes = "0" + minutes;
 	}
+	if (hours == "0") hours = "00";
 	return hours+":"+minutes+":"+seconds;
 }
 
