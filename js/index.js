@@ -13,6 +13,13 @@ $(document).ready( function () {
 	moveSecondHand();
 	// Set the intial minute hand container transition, and then each subsequent step
 	setUpMinuteHand();
+	
+	// for smoother experience on slow loading ipad:
+	$('#sidemenu a').click( function() {
+		console.log("empty")
+		$('#main-game-div').empty();
+		$('#right-side-buttons').empty();
+	});
 });
 
 function startDigitalClock() {
