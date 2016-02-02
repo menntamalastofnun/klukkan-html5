@@ -104,3 +104,30 @@ function setupClockMinuteHourHands(degrees) {
 	var hour_degrees = degrees/12;
 	rotateHand($('.hours-container'), hour_degrees);
 }
+
+function clockfaceSubmitAnswer(answer_hour, answer_minutes) {
+	var clockface_hour = getHourFromClockface()[0];
+	var clockface_24_hour_format = getHourFromClockface()[1];
+	var clockface_minutes = getMinutesFromClockface();
+		
+	// let's compare and check answer
+	if( (answer_hour == clockface_hour || answer_hour == clockface_24_hour_format)
+	&& clockface_minutes == answer_minutes ) {
+		clockfaceAnimateRightAnswer();
+		getNextQuestion();
+	}
+	else {
+		clockfaceAnimateWrongAnswer();
+	}
+}
+
+function getHourFromClockface() {
+	var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
+	var clockface_24_hour_format = clockface_hour + 12; 
+	/* for 24 hour format, no need to do modulus 24 so it's in range [0;23] ? */
+	return [clockface_hour, clockface_24_hour_format];
+}
+
+function getMinutesFromClockface() {
+	return Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
+}

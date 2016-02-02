@@ -6,37 +6,22 @@ var lastMinute = 0;
 
 $(document).ready( function () { 
 	$('.seconds-container').hide();
-	
 	getNextQuestion();
 	userDragClock();
 	
-	$('#play-sound-again').click(function() {
-		var audio = new Audio("media/"+$('#play-sound-again').attr("data-audio-link"));
-		audio.play();
-	});
-	
 	$('#submit-answer').click( function() {
-		// change this:
-		var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
-		var clockface_24_hour_format = clockface_hour + 12; // no need to do modulus something.
-		var clockface_minutes = Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
-		
-		var question_hour = $('#play-sound-again').attr("data-hour");
-		var question_minutes = $('#play-sound-again').attr("data-minutes");
-		
-		// let's compare and check answer
-		if( (question_hour == clockface_hour || question_hour == clockface_24_hour_format)
-			&& clockface_minutes == question_minutes ) {
-				clockfaceAnimateRightAnswer();
-				getNextQuestion();
-		}
-		else {
-			clockfaceAnimateWrongAnswer();
-		}
+		var answer_hour = $('#submit-answer').attr("data-hour");
+		var answer_minutes = $('#submit-answer').attr("data-minutes");
+		clockfaceSubmitAnswer(answer_hour, answer_minutes);
 	});
 	
 	$('#next-question').click( function() { 
 		getNextQuestion();
+	});
+	
+	$('#play-sound-again').click(function() {
+		var audio = new Audio("media/"+$('#play-sound-again').attr("data-audio-link"));
+		audio.play();
 	});
 });
 
@@ -50,8 +35,8 @@ function getNextQuestion() {
 		var audio = new Audio('media/' + json.audio);
 		audio.play();
 		$('#play-sound-again').attr("data-audio-link", json.audio);
-		$('#play-sound-again').attr("data-hour", json.hours);
-		$('#play-sound-again').attr("data-minutes", json.minutes);
+		$('#submit-answer').attr("data-hour", json.hours);
+		$('#submit-answer').attr("data-minutes", json.minutes);
 		// store link there for play-sound-again
 	});
 }

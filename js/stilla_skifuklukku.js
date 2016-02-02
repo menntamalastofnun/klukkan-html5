@@ -13,19 +13,8 @@ $(document).ready( function () {
 	userDragClock();
 	
 	$('#submit-answer').click( function() {
-		var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
-		var clockface_24_hour_format = clockface_hour + 12; // no need to do modulus something.
-		var clockface_minutes = Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
-		var digitalclock_time = $('#cpu-clock-time-minutes').html().split(":");
-		// let's compare and check answer
-		if( (digitalclock_time[0] == clockface_hour || digitalclock_time[0] == clockface_24_hour_format)
-			&& clockface_minutes == digitalclock_time[1] ) {
-				clockfaceAnimateRightAnswer();
-				getNextQuestion();
-		}
-		else {
-			clockfaceAnimateWrongAnswer();
-		}
+		var answer = $('#cpu-clock-time-minutes').html().split(":");
+		clockfaceSubmitAnswer(answer[0], answer[1]);
 	});
 	
 	$('#next-question').click( function() { 
@@ -39,7 +28,6 @@ function getNextQuestion() {
 		var times = $.xml2json(xml); 
 		var random = getRandomInt(0, times.time.length);
 		var json = times.time[random]; 
-		
 		$('#cpu-clock-time-minutes').html(json.hours + ":" + json.minutes);
 	});
 }
