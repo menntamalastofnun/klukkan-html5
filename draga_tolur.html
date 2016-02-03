@@ -7,6 +7,8 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
+		<script src="lib/jquery-ui.min.js"></script>
+		<script src="lib/jquery.ui.touch-punch.min.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/draga_tolur.js"></script>
 		<link rel="icon" type="image/png" href="media/img/favicon.png" />
@@ -36,7 +38,21 @@
 					</a>
 				</div>
 				<div class="col-md-10 col-sm-10">
-					<h1>Not ready</h1>
+					<div class="ui-widget-content draggable" id="drag-item-1">
+						<p>Drag me to my target 1</p>
+					</div>
+					
+					<div class="ui-widget-content draggable" id="drag-item-2">
+						<p>Drag me to my target 2</p>
+					</div>
+					 
+					<div class="ui-widget-header droppable" id="drop-spot-1">
+						<p>Drop here 1</p>
+					</div>
+					
+					<div class="ui-widget-header droppable" id="drop-spot-2">
+						<p>Drop here 2</p>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -237,3 +237,11 @@ border: 1px solid white;
 .index-description-clockface-text {
 	padding-left: 135px;
 }
+
+.draggable {
+	background: blue;
+}
+
+.droppable {
+	background: red;
+}
