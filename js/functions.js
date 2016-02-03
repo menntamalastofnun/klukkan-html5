@@ -63,6 +63,35 @@ function clockfaceAnimateWrongAnswer() {
 	);
 }
 
+// if right answer then bounce like a head nodding
+function digitalClockAnimateRightAnswer() {
+	// missing: audio for "jibby"
+	$('#cpu-clock-time-minutes').addClass('animated bounce');
+	$('.cpu-clock-img').addClass('animated bounce');
+	// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	setTimeout(function() {
+			$('#cpu-clock-time-minutes').removeClass('animated bounce');
+			$('.cpu-clock-img').removeClass('animated bounce');
+			// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
+	);
+}
+
+// if wrong anwswer then shake to sides like a head saying no
+function digitalClockAnimateWrongAnswer() {
+	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
+	audio_wrong_answer.play();
+	$('#cpu-clock-time-minutes').addClass('animated shake');
+	$('.cpu-clock-img').addClass('animated shake');
+	// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	setTimeout(function() {
+			$('#cpu-clock-time-minutes').removeClass('animated shake');
+			$('.cpu-clock-img').removeClass('animated shake');
+			// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+		}, 1000 // tiny wait
+	);
+}
+
 function userDragClock() { // dragging functionality:
 	var isMouseDown = false;
 	$(".clock")

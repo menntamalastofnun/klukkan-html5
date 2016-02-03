@@ -9,23 +9,20 @@ $(document).ready( function () {
 	
 	$('#submit-answer').click( function() {
 		var answer_hour = $('#submit-answer').attr("data-hour");
-		var answer_24_hour_format = answer_hour + 12;
+		var answer_24_hour_format = parseInt(answer_hour) + 12;
 		/* for 24 hour format, no need to do modulus 24 so it's in range [0;23] ? */
 		var answer_minutes = $('#submit-answer').attr("data-minutes");
 		var user_answer = $('#cpu-clock-time-minutes').html().split(":");
+		user_answer[0] = parseInt(user_answer[0]); // changing  for example 04:14 into 4:14
 		// checkAnswer
-		// animateCPUclock
-		
-		/* similar to this:: 
-		if( (answer_hour == clockface_hour || answer_hour == clockface_24_hour_format)
-		&& clockface_minutes == answer_minutes ) {
-			clockfaceAnimateRightAnswer();
+		if( (user_answer[0] == answer_hour || user_answer[0] == answer_24_hour_format)
+		&& answer_minutes == user_answer[1] ) {
+			digitalClockAnimateRightAnswer();
 			getNextQuestion();
 		}
 		else {
-			clockfaceAnimateWrongAnswer();
+			digitalClockAnimateWrongAnswer();
 		}
-		*/
 	});
 	
 	$('#next-question').click( function() { 
@@ -47,6 +44,7 @@ $(document).ready( function () {
 });
 
 function getNextQuestion() {
+	$('#cpu-clock-time-minutes').html(""); // clear user-answer box
 	// XML with text, audio, hours, minutes:
 	$.get('times1.xml', function(xml){ 
 		var times = $.xml2json(xml); 

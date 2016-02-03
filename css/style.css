@@ -156,6 +156,9 @@ border: 1px solid white;
 
 #right-side-buttons .glyphicon {
 	font-size: 30px;
+}
+
+.glyphicon-home {
 	padding-top: 15px;
 }
 
@@ -191,17 +194,19 @@ border: 1px solid white;
 
 #cpu-clock-time-seconds, #cpu-clock-time-minutes {
 	position: absolute;
-	top: 145px;
-	left: 90px;
 	font-family: 'Orbitron', sans-serif;
 }
 
-#cpu-clock-time-seconds {
-	font-size: 25px; /* smaller font to make room for seconds */
+#cpu-clock-time-minutes {
+	top: 140px;
+	left: 80px; /* widest possible string is 99999 and doesn't go out of frame */
+	font-size: 35px;
 }
 
-#cpu-clock-time-minutes {
-	font-size: 35px;
+#cpu-clock-time-seconds {
+	top: 148px;
+	left: 85px; /* widest possible string is 99:99:99 and doesn't go out of frame */
+	font-size: 25px; /* smaller font to make room for seconds */
 }
 
 .clockface-img {
