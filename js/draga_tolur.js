@@ -23,4 +23,13 @@ $(document).ready( function () {
             .html( "Dropped!" );
 		}
     });
+	
+	$( "#drop-spot-3" ).droppable({
+		accept: '#drag-item-3', 
+		drop: function( event, ui ) {
+			$( this )
+          .find( "p" )
+            .html( "Dropped!" );
+		}
+    });
 });

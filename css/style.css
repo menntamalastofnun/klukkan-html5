@@ -240,8 +240,58 @@ border: 1px solid white;
 
 .draggable {
 	background: blue;
+	width: 40px;
+	height: 40px;
+	z-index: 100;
 }
 
 .droppable {
-	background: red;
+	position: absolute;
+	background-color: rgba(255,0,0, 0.5);
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+
+#drop-spot-1, #drop-spot-11 {
+	top: 190px;
+}
+#drop-spot-1, #drop-spot-5 {
+	left: 243px;
+}
+#drop-spot-2, #drop-spot-10 {
+	top: 233px;
+}
+#drop-spot-2, #drop-spot-4 {
+	left: 285px;
+}
+#drop-spot-3, #drop-spot-9 {
+	top: 290px;
+}
+#drop-spot-3 {
+	left: 305px;
+}
+#drop-spot-4, #drop-spot-8 {
+	top: 347px;
+}
+#drop-spot-5, #drop-spot-7 {
+	top: 390px;
+}
+#drop-spot-6 {
+	top: 405px;
+}
+#drop-spot-6, #drop-spot-12 {
+	left: 185px;
+}
+#drop-spot-7, #drop-spot-11 {
+	left: 127px;
+}
+#drop-spot-8, #drop-spot-10 {
+	left: 84px;
+}
+#drop-spot-9 {
+	left: 65px;
+}
+#drop-spot-12 {
+	top: 170px;
 }
