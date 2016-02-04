@@ -38,28 +38,27 @@ body {
   left: 0;
 }
 
-/*
 .clock:after {
   background: #000;
   border-radius: 50%;
+  border: 1px solid white;
   content: "";
   position: absolute;
-  left: 47.5%;
-  top: 47.5%;
-  width: 5%;
-  height: 5%;
+  left: 205px;
+  top: 309px;
+  width: 20px;
+  height: 20px;
   z-index: 10;
-} */
+}
 
 .minutes-container, .hours-container, .seconds-container {
 /* let's position everything over the clockface */
-
   position: absolute;
   top: 162px;	
 	/* top: 204px; */
   right: 0;
   bottom: 0;
-  left: 82px;
+  left: 81px;
 	width:60%;
 	height:60%;
 }
@@ -82,8 +81,8 @@ body {
   position: absolute;
   top: 10%;
   transform-origin: 50% 100%;
-  width: 3.5%;
-border: 1px solid white;
+  width: 3%;
+	border: 1px solid white;
 }
 
 .seconds {
@@ -247,7 +246,6 @@ border: 1px solid white;
 
 .droppable {
 	position: absolute;
-	background-color: rgba(255,0,0, 0.5);
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
