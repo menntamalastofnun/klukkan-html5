@@ -4,6 +4,8 @@ From: cssanimation.rocks/clocks
 */
 
 $(document).ready( function () { 
+	workaroundMakeMobileLinksWork();
+
 	startDigitalClock();
 
 	// === Walking clock:
@@ -13,13 +15,6 @@ $(document).ready( function () {
 	moveSecondHand();
 	// Set the intial minute hand container transition, and then each subsequent step
 	setUpMinuteHand();
-	
-	// for smoother experience on slow loading ipad:
-	$('#sidemenu a').click( function() {
-		console.log("empty")
-		$('#main-game-div').empty();
-		$('#right-side-buttons').empty();
-	});
 });
 
 function startDigitalClock() {
@@ -70,7 +65,7 @@ function initLocalClock() {
   // Loop through each of these hands to set their angle
   for (var j = 0; j < hands.length; j++) {
     var element = $('.' + hands[j].hand + "-container");
-	rotateHand(element, hands[j].angle);
+	rotateDegrees(element, hands[j].angle);
 	// If this is a minute hand, note the seconds position (to calculate minute position later)
 	if (hands[j].hand === 'minutes') {
 	  // elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
@@ -96,7 +91,7 @@ function moveSecondHand() {
 		} else {
 			angle += 6;
 		}
-		rotateHand(container, angle);
+		rotateDegrees(container, angle);
 	}, 1000);
 }
 
@@ -123,7 +118,7 @@ function moveMinuteHand(container) {
 	var date = new Date(); // Setting it up again (instead of sending it between)
 	var minutes = date.getMinutes();
 	container.angle = (minutes * 6);
-	rotateHand(container, container.angle); // first minute up
+	rotateDegrees(container, container.angle); // first minute up
 	// Then continue with a 60 second interval
 	setInterval(function() {
 		console.log(container.angle)
@@ -133,6 +128,6 @@ function moveMinuteHand(container) {
 			container.angle += 6;
 		}
 		console.log(container.angle)
-		rotateHand(container, container.angle);
+		rotateDegrees(container, container.angle);
 	}, 60000, container);
 }

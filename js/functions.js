@@ -1,4 +1,4 @@
-function rotateHand(container, degrees) {
+function rotateDegrees(container, degrees) {
 	$(container).css({
 		'-webkit-transform' : 'rotateZ('+ degrees +'deg)',
 		'-moz-transform'    : 'rotateZ('+ degrees +'deg)',
@@ -40,10 +40,12 @@ function clockfaceAnimateRightAnswer() {
 	$('.clock').addClass('animated bounce');
 	$('.clockface-img').addClass('animated bounce');
 	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	$('.droppable').addClass("animated bounce"); // only happens in draga_tolur
 	setTimeout(function() {
 			$('.clock').removeClass('animated bounce');
 			$('.clockface-img').removeClass('animated bounce');
 			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+			$('.droppable').removeClass('animated bounce');
 		}, 1000 // tiny wait
 	);
 }
@@ -97,6 +99,9 @@ function userDragClock() { // dragging functionality:
 	$(".clock")
 	.mousedown(function(e) {
 		isMouseDown = true;
+		// for mouse pointer:
+		$('.clock').addClass("grabbing");
+		$('.clock').removeClass("grab");
 	})
 	.mousemove(function(e) {
 		if(isMouseDown) {
@@ -107,9 +112,13 @@ function userDragClock() { // dragging functionality:
 	 })
 	.mouseup(function() {
 		isMouseDown = false;
+		// for mouse pointer:
+		$('.clock').addClass("grab");
+		$('.clock').removeClass("grabbing");
 	});
 	
 	// for mobile/tablets:
+	// (No need to add mouse-pointer: grabbing here.)
 	$(".clock").on("touchmove", function(ev){
 		var e = ev.originalEvent;
 		if(e.touches.length == 1){ // Only deal with one finger
@@ -128,10 +137,10 @@ function userDragClock() { // dragging functionality:
 
 function setupClockMinuteHourHands(degrees) {
 	var minute_degrees = Math.floor(degrees/6)*6; // just a visual bonus: using degrees that point to a minute, otherwise degrees itself is good enough.
-	rotateHand($('.minutes-container'), minute_degrees);
+	rotateDegrees($('.minutes-container'), minute_degrees);
 	
 	var hour_degrees = degrees/12;
-	rotateHand($('.hours-container'), hour_degrees);
+	rotateDegrees($('.hours-container'), hour_degrees);
 }
 
 function clockfaceSubmitAnswer(answer_hour, answer_minutes) {
@@ -159,4 +168,19 @@ function getHourFromClockface() {
 
 function getMinutesFromClockface() {
 	return Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
+}
+
+function workaroundMakeMobileLinksWork() {
+	/* Mobile work-around: So links work properly when a user intends to click on a link,
+	but ends up dragging it ("touchmove"), then we check if "touchend" is on the link 
+	 */
+	$('a').on('click touchend', function(e) {
+		var el = $(this);
+		var link = el.attr('href');
+		/* doesn't work: 
+		el.css("background-color","rgba(100,150,100,1)");
+		-- was intending to make the sidemenu links work better
+		*/
+		window.location = link;
+	});
 }

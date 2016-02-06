@@ -117,8 +117,8 @@ body {
 	width:80px;
 	height:80px;
 	border-radius: 10px;
-	border-bottom: 3px solid #ccc;;
-	border-left: 3px solid #ccc;;
+	border-bottom: 3px solid #ccc;
+	border-left: 3px solid #ccc;
 	margin-bottom: 10px;
 }
 
@@ -138,7 +138,6 @@ body {
 #sidemenu .btn:hover, #right-side-buttons .btn:hover {
     transform: scale(1.08, 1.08);
     opacity: 1;
-	background-color: #fff;
 }
 
 #play-sound-again:hover {
@@ -150,7 +149,6 @@ body {
 }
 
 #sidemenu .btn:focus, #right-side-buttons .btn:focus {
-	background-color: #fff;
 }
 
 #right-side-buttons .glyphicon {
@@ -238,10 +236,35 @@ body {
 }
 
 .draggable {
-	background: blue;
 	width: 40px;
 	height: 40px;
 	z-index: 100;
+	/* idea: change it into text so we get this:
+	text-shadow: 10px 10px 5px #888888; */
+}
+
+.draggable, .grab {
+  cursor: hand;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.grabbing {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/* Prevent the text contents of draggable elements from being selectable. */
+.draggable, img {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
 }
 
 .droppable {

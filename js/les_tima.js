@@ -5,6 +5,8 @@ var turned_full_circles = 0;
 var lastMinute = 0;
 
 $(document).ready( function () { 
+	workaroundMakeMobileLinksWork();
+
 	$('.seconds-container').hide();
 	getNextQuestion();
 	userDragClock();

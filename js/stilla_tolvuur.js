@@ -1,4 +1,6 @@
 $(document).ready( function () { 
+	workaroundMakeMobileLinksWork();
+
 	$('.seconds-container').hide();
 	var audio = new Audio('media/audio/stilla_tolvuur.mp3');
 	audio.play();
