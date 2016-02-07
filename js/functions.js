@@ -37,18 +37,18 @@ function getRandomInt(min, max) {
 // if right answer then bounce like a head nodding
 function clockfaceAnimateRightAnswer() {
 	// missing: audio for "jibby"
-	$('.clock').addClass('animated bounce');
 	$('.clockface-img').addClass('animated bounce');
-	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
-	$('.droppable').addClass("animated bounce"); // only happens in draga_tolur
+	$('.droppable').remove(); // some things we only do in draga_tolur
+	$('.clock').addClass('animated bounce');
+	$('.clockface-img').attr("src","media/img/skifu-klukka-stor-happy.png");
 	setTimeout(function() {
 			$('.clock').removeClass('animated bounce');
 			$('.clockface-img').removeClass('animated bounce');
-			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
-			$('.droppable').removeClass('animated bounce');
+			$('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
 		}, 1000 // tiny wait
 	);
 }
+
 
 // if wrong anwswer then shake to sides like a head saying no
 function clockfaceAnimateWrongAnswer() {
@@ -56,11 +56,25 @@ function clockfaceAnimateWrongAnswer() {
 	audio_wrong_answer.play();
 	$('.clock').addClass('animated shake');
 	$('.clockface-img').addClass('animated shake');
-	$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-angry.png");
+	if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor.png") {
+		// the clockface has no hours, this script is called from draga_tolur
+		$('.clockface-img').attr("src","media/img/empty-skifu-klukka-stor-angry.png");
+	}
+	else {
+		$('.clockface-img').attr("src","media/img/skifu-klukka-stor-angry.png");
+	}
+	$('.droppable').addClass("animated shake"); // only happens in draga_tolur
 	setTimeout(function() {
 			$('.clock').removeClass('animated shake');
 			$('.clockface-img').removeClass('animated shake');
-			$('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+			if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor-angry.png") {
+				// the clockface has no hours, this script is called from draga_tolur
+				$('.clockface-img').attr("src","media/img/empty-skifu-klukka-stor.png");
+			}
+			else {
+				$('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
+			}
+			$('.droppable').removeClass('animated shake');
 		}, 1000 // tiny wait
 	);
 }
@@ -70,11 +84,11 @@ function digitalClockAnimateRightAnswer() {
 	// missing: audio for "jibby"
 	$('#cpu-clock-time-minutes').addClass('animated bounce');
 	$('.cpu-clock-img').addClass('animated bounce');
-	// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	// $('.clockface-img').attr("src","media/img/skifu-klukka-stor-happy.png");
 	setTimeout(function() {
 			$('#cpu-clock-time-minutes').removeClass('animated bounce');
 			$('.cpu-clock-img').removeClass('animated bounce');
-			// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+			// $('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
 		}, 1000 // tiny wait
 	);
 }
@@ -85,11 +99,11 @@ function digitalClockAnimateWrongAnswer() {
 	audio_wrong_answer.play();
 	$('#cpu-clock-time-minutes').addClass('animated shake');
 	$('.cpu-clock-img').addClass('animated shake');
-	// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor-happy.png");
+	// $('.clockface-img').attr("src","media/img/skifu-klukka-stor-happy.png");
 	setTimeout(function() {
 			$('#cpu-clock-time-minutes').removeClass('animated shake');
 			$('.cpu-clock-img').removeClass('animated shake');
-			// $('.clockface-img').attr("src","media/img/from-old/skifu-klukka-stor.png");
+			// $('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
 		}, 1000 // tiny wait
 	);
 }

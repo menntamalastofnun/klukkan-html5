@@ -4,10 +4,9 @@ $(document).ready( function () {
     $( ".draggable" ).draggable( { 
 		revert: 'invalid', 
 		drag: function() {
-			data = $(this).attr('data-value');
 			$(this).addClass("grabbing");
 			rotateDegrees($(this), 30);
-			$('.droppable').css("background-color", "rgba(165, 191, 168, 0.4)");
+			$('.droppable').css("background-color", "rgba(115, 231, 118, 0.4)");
 		},
 		stop:function(ev,ui){
 			droppableColorsOff();
@@ -35,28 +34,45 @@ $(document).ready( function () {
 			"cursor": "grabbing"
 		});
 	});
+	
+	$('#submit-answer').click( function() {
+		if( isItFinished() ) {
+			clockfaceAnimateRightAnswer();
+		}
+		else {
+			clockfaceAnimateWrongAnswer();
+		}
+	});
 });
 
 function handleDrop ( target ) {
-	droppableColorsOff();
-	// what element did we drop? let's see:
+	// ideally display some user encouragement when user managed to drop a thing on the right spot:
+	// audio.play for instance.....
+
+	// what element did we drop? let's remove it & and it's draggability
 	var get_number_hour = $(target).attr("id").substr(-2,2);
 	if (get_number_hour.substr(0,1) == "-") get_number_hour = get_number_hour.substr(1,2);
-	
 	var drop_id = "#drag-item-"+get_number_hour;
-	// $(drop_id).draggable("destroy"); // removing the draggable functionality
-	// $(drop_id).css("z-index", "100"); // still on top
 	$(drop_id).remove(); // removed
+	
 	$(target).css({
-		"background-image": "url(media/img/from-old/"+get_number_hour+".png)",
+		"background-image": "url(media/img/"+get_number_hour+".png)",
 		"background-repeat": "no-repeat",
 		"background-position": "center" 
 	});
 	
-	// if no more draggable elements exist: we've succeded in filling the clock:
-	// animate happy clock
-	if( $('.draggable').length == 0 ) {	
+	if ( isItFinished() ) {
 		clockfaceAnimateRightAnswer();
+	}
+}
+
+function isItFinished() {
+	// if no more draggable elements exist: we've succeded in filling the clock:
+	if( $('.draggable').length == 0 ) {	
+		return true;
+	}
+	else {
+		return false;
 	}
 }
 
