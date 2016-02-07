@@ -25,6 +25,8 @@ $(document).ready( function () {
 		var audio = new Audio("media/"+$('#play-sound-again').attr("data-audio-link"));
 		audio.play();
 	});
+	
+	enableSettingsButton();
 });
 
 function getNextQuestion() {

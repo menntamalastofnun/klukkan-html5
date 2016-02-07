@@ -198,3 +198,10 @@ function workaroundMakeMobileLinksWork() {
 		window.location = link;
 	});
 }
+
+function enableSettingsButton() {
+	$('#dialog').hide(); // funny that this is needed
+	$('#settings').click(function() {
+		$('#dialog').dialog(); // jquery ui dialog go go go
+	});
+}

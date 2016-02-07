@@ -33,20 +33,36 @@ $(document).ready( function () {
 	
 	$('.digital-clock-input').click( function () {
 		var value = $(this).val();
+		/* string is of the format five positions filled with "_" letters, 
+		unless the positions filled with numbers from left to right */
 		var string = $('#cpu-clock-time-minutes').html();
+		var string_max_len = 5;
+		for(var i=0; i < string_max_len; i++) {
+			string = string.replace("_",""); // let's remove all _ _ _ _ _ from string
+		}
 		if( value === "C") { // erase
 			var new_string = string.substring(0, (string.length-1) );
+			while(new_string.length < string_max_len) {
+				new_string = new_string.concat("_");
+			}
 			$('#cpu-clock-time-minutes').html(new_string);
 		}
 		else {
-			if ( string.length < 5 )
-			$('#cpu-clock-time-minutes').append(value)
+			if ( string.length < string_max_len ) {
+				string = string.concat(value);
+				while(string.length < string_max_len) {
+					string = string.concat("_");
+				}
+				$('#cpu-clock-time-minutes').html(string);
+			}
 		}
 	});
+	
+	enableSettingsButton();
 });
 
 function getNextQuestion() {
-	$('#cpu-clock-time-minutes').html(""); // clear user-answer box
+	$('#cpu-clock-time-minutes').html("_____"); // clear user-answer box with _ _ _ _ _
 	// XML with text, audio, hours, minutes:
 	$.get('times1.xml', function(xml){ 
 		var times = $.xml2json(xml); 

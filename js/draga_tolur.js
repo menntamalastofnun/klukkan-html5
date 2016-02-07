@@ -1,6 +1,9 @@
 $(document).ready( function () { 
 	workaroundMakeMobileLinksWork();
-
+	
+	var audio = new Audio('media/audio/draga_tolur.mp3');
+	audio.play();
+	
     $( ".draggable" ).draggable( { 
 		revert: 'invalid', 
 		drag: function() {

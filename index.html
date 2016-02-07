@@ -4,9 +4,11 @@
         <meta charset="utf-8">
         <title>Klukkan</title>
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
+		<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/index.js"></script>
 		<link rel="icon" type="image/png" href="media/img/favicon.png" />
@@ -31,9 +33,12 @@
 						<img src="media/img/button5.png">
 					</a>
 					<!-- get it to the bottom -->
-					<a href="" class="btn btn-default btn-block bottom" role="button">
-						<img src="media/img/button6.png">
-					</a>
+					<button type="button" class="btn btn-default btn-block bottom" id="settings">
+						<h3>UM</h3>
+					</button>
+					<div id="dialog" title="Um leikinn">
+					  <p>Hér kemur texti um klukkuna...</p>
+					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
 					<row>

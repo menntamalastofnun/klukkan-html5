@@ -15,6 +15,8 @@ $(document).ready( function () {
 	moveSecondHand();
 	// Set the intial minute hand container transition, and then each subsequent step
 	setUpMinuteHand();
+	
+	enableSettingsButton();
 });
 
 function startDigitalClock() {

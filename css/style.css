@@ -181,19 +181,19 @@ body {
 
 #cpu-clock-time-seconds, #cpu-clock-time-minutes {
 	position: absolute;
-	font-family: 'Orbitron', sans-serif;
+	font-family: 'VT323', sans-serif;
 }
 
 #cpu-clock-time-minutes {
-	top: 140px;
-	left: 80px; /* widest possible string is 99999 and doesn't go out of frame */
-	font-size: 35px;
+	top: 125px;
+	left: 90px; /* widest possible string is 99999 and doesn't go out of frame */
+	font-size: 55px;
 }
 
 #cpu-clock-time-seconds {
-	top: 148px;
+	top: 138px;
 	left: 85px; /* widest possible string is 99:99:99 and doesn't go out of frame */
-	font-size: 25px; /* smaller font to make room for seconds */
+	font-size: 40px; /* smaller font to make room for seconds */
 }
 
 .clockface-img {
@@ -373,4 +373,17 @@ body {
 #drag-item-12 {
 	top: 230px;
 	left: 215px;
+}
+
+/* for settings: */
+
+#radio label { // for big fingers on mobile/tablet
+	padding: 7px;
+	margin: 7px;
+	border-radius: 5px;
+}
+
+#radio span {
+	padding:10px;
+	width:120px;
 }

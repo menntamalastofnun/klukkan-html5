@@ -22,6 +22,9 @@ $(document).ready( function () {
 	$('#next-question').click( function() { 
 		getNextQuestion();
 	});
+	
+	enableSettingsButton();
+	$('#radio').buttonset();
 });
 
 function getNextQuestion() {
