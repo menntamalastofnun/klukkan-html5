@@ -1,7 +1,9 @@
 # klukkan-html5
 
-#####Klukkuleikurinn skrifaður í html5 svo hann virki á iPad.
+An educational clock game written in html5.
 
-#####Educational clock game rewritten in html5 for tablets.
+Rewritten from a flash game, link to flash: http://vefir.nams.is/klukkan/klukkan.htm
+
+Language: Icelandic. Should be easy to port to other languages (would need audio (or skip audio) and text fixes, and for programming clarity: filename changes into english).
 
 *Assisted by example: https://cssanimation.rocks/clocks/*
