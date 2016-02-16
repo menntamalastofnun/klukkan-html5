@@ -1,5 +1,5 @@
-function rotateDegrees(container, degrees) {
-	$(container).css({
+function rotateDegrees(element, degrees) {
+	$(element).css({
 		'-webkit-transform' : 'rotateZ('+ degrees +'deg)',
 		'-moz-transform'    : 'rotateZ('+ degrees +'deg)',
 		'-ms-transform'     : 'rotateZ('+ degrees +'deg)',
@@ -36,7 +36,8 @@ function getRandomInt(min, max) {
 
 // if right answer then bounce like a head nodding
 function clockfaceAnimateRightAnswer() {
-	// missing: audio for "jibby"
+	var audio_right_answer = new Audio('media/audio/jibby.mp3');
+	audio_right_answer.play();
 	$('.clockface-img').addClass('animated bounce');
 	$('.droppable').remove(); // some things we only do in draga_tolur
 	$('.clock').addClass('animated bounce');
@@ -81,14 +82,16 @@ function clockfaceAnimateWrongAnswer() {
 
 // if right answer then bounce like a head nodding
 function digitalClockAnimateRightAnswer() {
-	// missing: audio for "jibby"
+	var audio_right_answer = new Audio('media/audio/jibby.mp3');
+	audio_right_answer.play();
 	$('#cpu-clock-time-minutes').addClass('animated bounce');
+	$('.cpu-clock-img').attr("src","media/img/digitalclock-happy.png");
 	$('.cpu-clock-img').addClass('animated bounce');
-	// $('.clockface-img').attr("src","media/img/skifu-klukka-stor-happy.png");
+	
 	setTimeout(function() {
 			$('#cpu-clock-time-minutes').removeClass('animated bounce');
 			$('.cpu-clock-img').removeClass('animated bounce');
-			// $('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
+			$('.cpu-clock-img').attr("src","media/img/tolvu-ur-stort.png");
 		}, 1000 // tiny wait
 	);
 }
@@ -98,12 +101,12 @@ function digitalClockAnimateWrongAnswer() {
 	var audio_wrong_answer = new Audio('media/audio/aejaej.mp3');
 	audio_wrong_answer.play();
 	$('#cpu-clock-time-minutes').addClass('animated shake');
+	$('.cpu-clock-img').attr("src","media/img/tolvu-ur-angry.png");
 	$('.cpu-clock-img').addClass('animated shake');
-	// $('.clockface-img').attr("src","media/img/skifu-klukka-stor-happy.png");
 	setTimeout(function() {
 			$('#cpu-clock-time-minutes').removeClass('animated shake');
 			$('.cpu-clock-img').removeClass('animated shake');
-			// $('.clockface-img').attr("src","media/img/skifu-klukka-stor.png");
+			$('.cpu-clock-img').attr("src","media/img/tolvu-ur-stort.png");
 		}, 1000 // tiny wait
 	);
 }
@@ -151,10 +154,10 @@ function userDragClock() { // dragging functionality:
 
 function setupClockMinuteHourHands(degrees) {
 	var minute_degrees = Math.floor(degrees/6)*6; // just a visual bonus: using degrees that point to a minute, otherwise degrees itself is good enough.
-	rotateDegrees($('.minutes-container'), minute_degrees);
+	rotateDegrees($('.minutes'), minute_degrees);
 	
 	var hour_degrees = degrees/12;
-	rotateDegrees($('.hours-container'), hour_degrees);
+	rotateDegrees($('.hours'), hour_degrees);
 }
 
 function clockfaceSubmitAnswer(answer_hour, answer_minutes) {
@@ -174,14 +177,14 @@ function clockfaceSubmitAnswer(answer_hour, answer_minutes) {
 }
 
 function getHourFromClockface() {
-	var clockface_hour = Math.floor(getRotationDegrees( $('.hours-container')) / 30);
+	var clockface_hour = Math.floor(getRotationDegrees( $('.hours')) / 30);
 	var clockface_24_hour_format = clockface_hour + 12; 
 	/* for 24 hour format, no need to do modulus 24 so it's in range [0;23] ? */
 	return [clockface_hour, clockface_24_hour_format];
 }
 
 function getMinutesFromClockface() {
-	return Math.floor(getRotationDegrees( $('.minutes-container')) / 6);
+	return Math.floor(getRotationDegrees( $('.minutes')) / 6);
 }
 
 function workaroundMakeMobileLinksWork() {

@@ -11,6 +11,7 @@ $(document).ready( function () {
 	// === Walking clock:
 	// Initialise local time clock
 	initLocalClock();
+	
 	// Start the seconds container moving
 	moveSecondHand();
 	// Set the intial minute hand container transition, and then each subsequent step
@@ -53,7 +54,7 @@ function initLocalClock() {
   var hands = [
     {
       hand: 'hours',
-      angle: (hours * 30) + (minutes / 2)
+      angle: ((hours * 30) + (minutes / 2))
     },
     {
       hand: 'minutes',
@@ -64,14 +65,15 @@ function initLocalClock() {
       angle: (seconds * 6)
     }
   ];
+  
   // Loop through each of these hands to set their angle
   for (var j = 0; j < hands.length; j++) {
-    var element = $('.' + hands[j].hand + "-container");
+    var element = $('.' + hands[j].hand);
 	rotateDegrees(element, hands[j].angle);
 	// If this is a minute hand, note the seconds position (to calculate minute position later)
 	if (hands[j].hand === 'minutes') {
 	  // elements[k].parentNode.setAttribute('data-second-angle', hands[j + 1].angle);
-	  element[0].setAttribute('data-second-angle', hands[j + 1].angle);
+	  $('.minutes-container')[0].setAttribute('data-second-angle', hands[j + 1].angle);
 	}
   }
 }
@@ -80,9 +82,6 @@ function initLocalClock() {
  * Move the second containers
  */
 function moveSecondHand() {
-	// var container = document.querySelectorAll('.seconds-container');
-	var container = $('.seconds-container');
-	
 	var date = new Date(); // Setting it up again (instead of sending it between)
 	var seconds = date.getSeconds();	
 	var angle = (seconds * 6);
@@ -93,7 +92,8 @@ function moveSecondHand() {
 		} else {
 			angle += 6;
 		}
-		rotateDegrees(container, angle);
+		var element = $('.seconds');
+		rotateDegrees(element, angle);
 	}, 1000);
 }
 
@@ -120,7 +120,7 @@ function moveMinuteHand(container) {
 	var date = new Date(); // Setting it up again (instead of sending it between)
 	var minutes = date.getMinutes();
 	container.angle = (minutes * 6);
-	rotateDegrees(container, container.angle); // first minute up
+	rotateDegrees( $('.minutes'), container.angle); // first minute up
 	// Then continue with a 60 second interval
 	setInterval(function() {
 		console.log(container.angle)
@@ -129,7 +129,6 @@ function moveMinuteHand(container) {
 		} else {
 			container.angle += 6;
 		}
-		console.log(container.angle)
-		rotateDegrees(container, container.angle);
+		rotateDegrees( $('.minutes'), container.angle);
 	}, 60000, container);
 }
