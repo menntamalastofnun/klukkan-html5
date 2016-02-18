@@ -24,14 +24,32 @@ $(document).ready( function () {
 	});
 	
 	enableSettingsButton();
+	$('#dialog input[type=radio]').on('change', function() {
+		getNextQuestion();
+	});
 });
 
 function getNextQuestion() {
-	// XML with text, audio, hours, minutes:
-	$.get('times1.xml', function(xml){ 
+	// XML with text, audio, hours, minutes: times1.xml and times2.xml
+	
+	var settings_radio = $('#dialog :checked').attr("id");
+	if (settings_radio == "radio1") {
+		var filename = "times1.xml";
+	}
+	else {
+		var filename = "times2.xml";
+	}
+	
+	$.get( filename, function(xml){ 
 		var times = $.xml2json(xml); 
 		var random = getRandomInt(0, times.time.length);
 		var json = times.time[random]; 
+		if ( json.hours.length == 1) {
+			json.hours = "0"+json.hours;
+		}
+		if ( json.minutes.length == 1) {
+			json.minutes = "0"+json.minutes;
+		}
 		$('#cpu-clock-time-minutes').html(json.hours + ":" + json.minutes);
 	});
 }
