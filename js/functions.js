@@ -39,7 +39,7 @@ function getRandomInt(min, max) {
 
 // if right answer then bounce like a head nodding
 function clockfaceAnimateRightAnswer() {
-	var audio_right_answer = new Audio('media/audio/jibby.mp3');
+	var audio_right_answer = new Audio('media/audio/jibbi.mp3');
 	audio_right_answer.play();
 	$('.clockface-img').addClass('animated bounce');
 	$('.droppable').remove(); // some things we only do in draga_tolur
@@ -85,7 +85,7 @@ function clockfaceAnimateWrongAnswer() {
 
 // if right answer then bounce like a head nodding
 function digitalClockAnimateRightAnswer() {
-	var audio_right_answer = new Audio('media/audio/jibby.mp3');
+	var audio_right_answer = new Audio('media/audio/jibbi.mp3');
 	audio_right_answer.play();
 	$('#cpu-clock-time-minutes').addClass('animated bounce');
 	$('.cpu-clock-img').attr("src","media/img/digitalclock-happy.png");
@@ -115,30 +115,37 @@ function digitalClockAnimateWrongAnswer() {
 }
 
 function userDragClock() { // dragging functionality:
-	var isMouseDown = false;
+	var isDragging = false;
+	
 	$(".clock")
 	.mousedown(function(e) {
-		isMouseDown = true;
+		isDragging = true;
 		// for mouse pointer:
 		$('.clock').addClass("grabbing");
 		$('.clock').removeClass("grab");
+		clockDraggingSound();
+		
 	})
 	.mousemove(function(e) {
-		if(isMouseDown) {
+		if(isDragging) {
 			var x = e.pageX;
 			var y = e.pageY;
 			xyToDegrees(x, y);
 		}
 	 })
 	.mouseup(function() {
-		isMouseDown = false;
+		isDragging = false;
 		// for mouse pointer:
 		$('.clock').addClass("grab");
 		$('.clock').removeClass("grabbing");
+		clockDragEndSound();
 	});
 	
 	// for mobile/tablets:
 	// (No need to add mouse-pointer: grabbing here.)
+	$(".clock").on("touchstart", function() {
+		clockDraggingSound();
+	});
 	$(".clock").on("touchmove", function(ev){
 		var e = ev.originalEvent;
 		if(e.touches.length == 1){ // Only deal with one finger
@@ -148,11 +155,29 @@ function userDragClock() { // dragging functionality:
 			xyToDegrees(x, y);
 		}
 	});
+	$(".clock").on("touchend", function() {
+		clockDragEndSound();
+	});
 	
 	// try to prevent ipad scrolling
 	document.ontouchmove = function(e){ 
 		e.preventDefault(); 
 	}
+}
+
+function clockDraggingSound() {
+	var audio = new Audio('media/audio/clock_set_start.mp3');
+	audio.addEventListener('ended', function() {
+		// ideally we should play this on a loop until dragging is stopped?
+		var audio_drag = new Audio('media/audio/clock_set_drag.mp3');
+		audio_drag.play();
+	});
+	audio.play();
+}
+
+function clockDragEndSound() {
+	var audio = new Audio('media/audio/clock_set_stop.mp3');
+	audio.play();
 }
 
 function setupClockMinuteHourHands(degrees) {
@@ -191,7 +216,8 @@ function getMinutesFromClockface() {
 }
 
 function workaroundMakeMobileLinksWork() {
-	/* Mobile work-around: So links work properly when a user intends to click on a link,
+	/*  make links easier to click on in the tablets (note: we should also do this for buttons)
+	So links work properly when a user intends to click on a link,
 	but ends up dragging it ("touchmove"), then we check if "touchend" is on the link 
 	 */
 	$('a').on('click touchend', function(e) {

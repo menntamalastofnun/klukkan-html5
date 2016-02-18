@@ -18,7 +18,18 @@ $(document).ready( function () {
 	setUpMinuteHand();
 	
 	enableSettingsButton();
+	
+	playClockTikTok();
 });
+
+function playClockTikTok() {
+	var audio = new Audio('media/audio/clock_tick_'+ getRandomInt(1,7) +'.mp3');
+	audio.addEventListener('ended', function() {
+		this.src = 'media/audio/clock_tick_'+ getRandomInt(1,7) +'.mp3'; // changing the clock ticking audio
+		this.play();
+	});
+	audio.play();
+}
 
 function startDigitalClock() {
   $('#cpu-clock-time-seconds').html(getDigitalTimeString());

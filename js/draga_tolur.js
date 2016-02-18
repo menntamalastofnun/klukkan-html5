@@ -6,6 +6,10 @@ $(document).ready( function () {
 	
     $( ".draggable" ).draggable( { 
 		revert: 'invalid', 
+		start: function() {
+			var audio = new Audio('media/audio/num_pickup_' + getRandomInt(1,5) + '.mp3');
+			audio.play();
+		},
 		drag: function() {
 			$(this).addClass("grabbing");
 			rotateDegrees($(this), 30);
@@ -49,8 +53,8 @@ $(document).ready( function () {
 });
 
 function handleDrop ( target ) {
-	// ideally display some user encouragement when user managed to drop a thing on the right spot:
-	// audio.play for instance.....
+	var audio = new Audio('media/audio/num_drop_' + getRandomInt(1,5) + '.mp3');
+	audio.play();
 
 	// what element did we drop? let's remove it & and it's draggability
 	var get_number_hour = $(target).attr("id").substr(-2,2);

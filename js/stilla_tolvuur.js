@@ -32,6 +32,9 @@ $(document).ready( function () {
 	});
 	
 	$('.digital-clock-input').click( function () {
+		var audio = new Audio('media/audio/digi_butt_'+getRandomInt(1,4)+'.mp3');
+		audio.play();
+		
 		var value = $(this).val();
 		/* string is of the format five positions filled with "_" letters, 
 		unless the positions filled with numbers from left to right */
