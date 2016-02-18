@@ -24,7 +24,6 @@ $(document).ready( function () {
 	});
 	
 	enableSettingsButton();
-	$('#radio').buttonset();
 });
 
 function getNextQuestion() {

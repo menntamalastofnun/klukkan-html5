@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <title>Klukkan</title>
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="lib/animate.css">
 		<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
+		<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 		<script src="lib/jquery.xml2json.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/stilla_tolvuur.js"></script>
@@ -51,9 +53,44 @@
 						<img src="media/img/button5.png">
 					</a>
 					<!-- get it to the bottom -->
-					<a href="" class="btn btn-default btn-block bottom" role="button">
+					<button type="button" class="btn btn-default btn-block bottom" id="settings">
 						<img src="media/img/button6.png">
-					</a>
+					</button>
+					<div id="dialog" title="Stillingar">
+						<p>Stillingar eru ekki tilbúnar, en munu líta einhvern veginn svona út:</p>
+						<p><strong>Tímastillingar</strong></p>
+						<form>
+							<div id="settings-radio-buttonset1">
+								<input type="radio" id="radio1" name="radio" />
+								<label for="radio1">Heilir tímar</label>
+								<br>
+								<input type="radio" id="radio2" name="radio" checked="checked" />
+								<label for="radio2">Hálfir tímar</label>
+								<br>
+								<input type="radio" id="radio3" name="radio" />
+								<label for="radio3">15-mínútur</label>
+								<br>
+								<input type="radio" id="radio4" name="radio" />
+								<label for="radio4">10-mínútur</label>
+								<br>
+								<input type="radio" id="radio5" name="radio" />
+								<label for="radio5">1-mínúta</label>
+							</div>
+						</form>
+						<p><strong>Þyngdarstig</strong></p>
+						<form>
+							<div id="settings-radio-buttonset2">
+								<input type="radio" id="radio-21" name="radio" />
+								<label for="radio-21">Með hjálp</label>
+								<br>
+								<input type="radio" id="radio-22" name="radio" checked="checked" />
+								<label for="radio-22">Hjálparlaust</label>
+								<br>
+								<input type="radio" id="radio-23" name="radio" />
+								<label for="radio-23">Afrita</label>
+							</div>
+						</form> 
+					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
 					<row>

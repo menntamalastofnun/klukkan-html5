@@ -1,10 +1,13 @@
 function rotateDegrees(element, degrees) {
 	$(element).css({
-		'-webkit-transform' : 'rotateZ('+ degrees +'deg)',
-		'-moz-transform'    : 'rotateZ('+ degrees +'deg)',
-		'-ms-transform'     : 'rotateZ('+ degrees +'deg)',
-		'-o-transform'      : 'rotateZ('+ degrees +'deg)',
-		'transform'         : 'rotateZ('+ degrees +'deg)',
+		'-webkit-transform' 		: 'rotateZ('+ degrees +'deg)',
+		'-moz-transform'    		: 'rotateZ('+ degrees +'deg)',
+		'-ms-transform'     		: 'rotateZ('+ degrees +'deg)',
+		'-o-transform'      		: 'rotateZ('+ degrees +'deg)',
+		'transform'         		: 'rotateZ('+ degrees +'deg)',
+		"-webkit-transform-origin"	: "bottom center",
+		"-moz-transform-origin"		: "bottom center",
+		"transform-origin"			: "bottom center",
 	});
 }
 
@@ -207,4 +210,6 @@ function enableSettingsButton() {
 	$('#settings').click(function() {
 		$('#dialog').dialog(); // jquery ui dialog go go go
 	});
+	$('#settings-radio-buttonset1').buttonset(); // give more descriptive DIV name. 
+	$('#settings-radio-buttonset2').buttonset(); // give more descriptive DIV name. 
 }

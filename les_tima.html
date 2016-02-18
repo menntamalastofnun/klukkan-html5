@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <title>Klukkan</title>
 		<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="lib/jquery-ui/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link rel="stylesheet" type="text/css" href="lib/animate.css">
 		<link href='https://fonts.googleapis.com/css?family=VT323' rel='stylesheet' type='text/css'>
 		<script src="lib/jquery.min.js"></script>
+		<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 		<script src="lib/jquery.xml2json.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/les_tima.js"></script>
@@ -51,9 +53,22 @@
 						<img src="media/img/button5.png">
 					</a>
 					<!-- get it to the bottom -->
-					<a href="" class="btn btn-default btn-block bottom" role="button">
+					<button type="button" class="btn btn-default btn-block bottom" id="settings">
 						<img src="media/img/button6.png">
-					</a>
+					</button>
+					<div id="dialog" title="Stillingar">
+						<p>Stillingar eru ekki tilbúnar, en munu líta einhvern veginn svona út:</p>
+						<p><strong>Þyngdarstig</strong></p>
+						<form>
+							<div id="settings-radio-buttonset1">
+								<input type="radio" id="radio1" name="radio" />
+								<label for="radio1">Þyngdarstig 1</label>
+								<br>
+								<input type="radio" id="radio2" name="radio" checked="checked" />
+								<label for="radio2">Þyngdarstig 2 (erfiðara)</label>
+							</div>
+						</form>
+					</div>
 				</div>
 				<div class="col-md-10 col-sm-10">
 					<row>

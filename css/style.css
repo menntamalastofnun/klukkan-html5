@@ -77,11 +77,11 @@ body {
 
 .seconds {
   background: rgb(228,56,56);
-  height: 45%;
-  left: 49.5%;
+  height: 40%;
+  left: 49%;
   position: absolute;
-  top: 14%;
-  transform-origin: 50% 80%;
+  top: 10%;
+  transform-origin: 50% 100%;
   width: 1%;
   z-index: 8;
 }
@@ -376,14 +376,13 @@ body {
 }
 
 /* for settings: */
-
-#radio label { // for big fingers on mobile/tablet
+#settings-radio-buttonset1 label, #settings-radio-buttonset2 label { // for big fingers on mobile/tablet
 	padding: 7px;
 	margin: 7px;
 	border-radius: 5px;
 }
 
-#radio span {
+#settings-radio-buttonset1 span, #settings-radio-buttonset2 span {
 	padding:10px;
 	width:120px;
 }
