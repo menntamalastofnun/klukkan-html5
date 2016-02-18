@@ -27,11 +27,24 @@ $(document).ready( function () {
 	});
 	
 	enableSettingsButton();
+	$('#dialog input[type=radio]').on('change', function() {
+		getNextQuestion();
+	});
 });
 
 function getNextQuestion() {
 	// XML with text, audio, hours, minutes:
-	$.get('times1.xml', function(xml){ 
+	var settings_radio = $('#dialog :checked').attr("id");
+	if (settings_radio == "radio1") {
+		var filename = "times1.xml";
+	}
+	else {
+		var filename = "times2.xml";
+	}
+	
+	$.get(filename, function(xml){ 
+		console.log(filename)
+		console.log("success")
 		var times = $.xml2json(xml); 
 		var random = getRandomInt(0, times.time.length);
 		var json = times.time[random]; 
@@ -41,6 +54,7 @@ function getNextQuestion() {
 		$('#play-sound-again').attr("data-audio-link", json.audio);
 		$('#submit-answer').attr("data-hour", json.hours);
 		$('#submit-answer').attr("data-minutes", json.minutes);
+		console.log("yes")
 		// store link there for play-sound-again
 	});
 }

@@ -1,0 +1,645 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<times>
+	<time>
+		<text>Klukkan er tíu mínútur yfir eitt</text>
+		<audio>audio/1_10.mp3</audio>
+		<hours>1</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir eitt</text>
+		<audio>audio/1_20.mp3</audio>
+		<hours>1</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í tvö</text>
+		<audio>audio/1_40.mp3</audio>
+		<hours>1</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í tvö</text>
+		<audio>audio/1_50.mp3</audio>
+		<hours>1</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir tvö</text>
+		<audio>audio/2_10.mp3</audio>
+		<hours>2</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir tvö</text>
+		<audio>audio/2_20.mp3</audio>
+		<hours>2</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í þrjú</text>
+		<audio>audio/2_40.mp3</audio>
+		<hours>2</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í þrjú</text>
+		<audio>audio/2_50.mp3</audio>
+		<hours>2</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir þrjú</text>
+		<audio>audio/3_10.mp3</audio>
+		<hours>3</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir þrjú</text>
+		<audio>audio/3_20.mp3</audio>
+		<hours>3</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í fjögur</text>
+		<audio>audio/3_40.mp3</audio>
+		<hours>3</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í fjögur</text>
+		<audio>audio/3_50.mp3</audio>
+		<hours>3</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir fjögur</text>
+		<audio>audio/4_10.mp3</audio>
+		<hours>4</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir fjögur</text>
+		<audio>audio/4_20.mp3</audio>
+		<hours>4</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í fimm</text>
+		<audio>audio/4_40.mp3</audio>
+		<hours>4</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í fimm</text>
+		<audio>audio/4_50.mp3</audio>
+		<hours>4</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir fimm</text>
+		<audio>audio/5_10.mp3</audio>
+		<hours>5</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir fimm</text>
+		<audio>audio/5_20.mp3</audio>
+		<hours>5</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í sex</text>
+		<audio>audio/5_40.mp3</audio>
+		<hours>5</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í sex</text>
+		<audio>audio/5_50.mp3</audio>
+		<hours>5</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir sex</text>
+		<audio>audio/6_10.mp3</audio>
+		<hours>6</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir sex</text>
+		<audio>audio/6_20.mp3</audio>
+		<hours>6</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í sjö</text>
+		<audio>audio/6_40.mp3</audio>
+		<hours>6</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í sjö</text>
+		<audio>audio/6_50.mp3</audio>
+		<hours>6</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir sjö</text>
+		<audio>audio/7_10.mp3</audio>
+		<hours>7</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir sjö</text>
+		<audio>audio/7_20.mp3</audio>
+		<hours>7</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í átta</text>
+		<audio>audio/7_40.mp3</audio>
+		<hours>7</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í átta</text>
+		<audio>audio/7_50.mp3</audio>
+		<hours>7</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir átta</text>
+		<audio>audio/8_10.mp3</audio>
+		<hours>8</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir átta</text>
+		<audio>audio/8_20.mp3</audio>
+		<hours>8</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í níu</text>
+		<audio>audio/8_40.mp3</audio>
+		<hours>8</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í níu</text>
+		<audio>audio/8_50.mp3</audio>
+		<hours>8</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir níu</text>
+		<audio>audio/9_10.mp3</audio>
+		<hours>9</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir níu</text>
+		<audio>audio/9_20.mp3</audio>
+		<hours>9</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í tíu</text>
+		<audio>audio/9_40.mp3</audio>
+		<hours>9</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í tíu</text>
+		<audio>audio/9_50.mp3</audio>
+		<hours>9</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir tíu</text>
+		<audio>audio/10_10.mp3</audio>
+		<hours>10</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir tíu</text>
+		<audio>audio/10_20.mp3</audio>
+		<hours>10</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í ellefu</text>
+		<audio>audio/10_40.mp3</audio>
+		<hours>10</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í ellefu</text>
+		<audio>audio/10_50.mp3</audio>
+		<hours>10</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir ellefu</text>
+		<audio>audio/11_10.mp3</audio>
+		<hours>11</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir ellefu</text>
+		<audio>audio/11_20.mp3</audio>
+		<hours>11</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í tólf</text>
+		<audio>audio/11_40.mp3</audio>
+		<hours>11</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í tólf</text>
+		<audio>audio/11_50.mp3</audio>
+		<hours>11</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tíu mínútur yfir tólf</text>
+		<audio>audio/12_10.mp3</audio>
+		<hours>12</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir tólf</text>
+		<audio>audio/12_20.mp3</audio>
+		<hours>12</hours>
+		<minutes>20</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í eitt</text>
+		<audio>audio/12_40.mp3</audio>
+		<hours>12</hours>
+		<minutes>40</minutes>
+	</time>			
+	<time>
+		<text>Klukkuna vantar tíu mínútur í eitt</text>
+		<audio>audio/12_50.mp3</audio>
+		<hours>12</hours>
+		<minutes>50</minutes>
+	</time>			
+	<time>
+		<text>Klukkan er tvær mínútur yfir tvö</text>
+		<audio>audio/2_02.mp3</audio>
+		<hours>2</hours>
+		<minutes>2</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er eina mínútu yfir tvö</text>
+		<audio>audio/2_01.mp3</audio>
+		<hours>2</hours>
+		<minutes>1</minutes>
+	</time>
+	<time>
+		<text>Klukkan er fjórar mínútur yfir tvö</text>
+		<audio>audio/2_04.mp3</audio>
+		<hours>2</hours>
+		<minutes>4</minutes>
+	</time>				
+	<time>
+		<text>Klukkan er þrjár mínútur yfir tvö</text>
+		<audio>audio/2_03.mp3</audio>
+		<hours>2</hours>
+		<minutes>3</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er fimm mínútur yfir tvö</text>
+		<audio>audio/2_05.mp3</audio>
+		<hours>2</hours>
+		<minutes>5</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er sex mínútur yfir fimm</text>
+		<audio>audio/5_06.mp3</audio>
+		<hours>5</hours>
+		<minutes>6</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er sjö mínútur yfir fimm</text>
+		<audio>audio/5_07.mp3</audio>
+		<hours>5</hours>
+		<minutes>7</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er átta mínútur yfir fimm</text>
+		<audio>audio/5_08.mp3</audio>
+		<hours>5</hours>
+		<minutes>8</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er níu mínútur yfir fimm</text>
+		<audio>audio/5_09.mp3</audio>
+		<hours>5</hours>
+		<minutes>9</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tíu mínútur yfir fimm</text>
+		<audio>audio/5_10.mp3</audio>
+		<hours>5</hours>
+		<minutes>10</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er ellefu mínútur yfir sjö</text>
+		<audio>audio/7_11.mp3</audio>
+		<hours>7</hours>
+		<minutes>11</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tólf mínútur yfir sjö</text>
+		<audio>audio/7_12.mp3</audio>
+		<hours>7</hours>
+		<minutes>12</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tólf mínútur yfir sjö</text>
+		<audio>audio/7_12.mp3</audio>
+		<hours>7</hours>
+		<minutes>12</minutes>
+	</time>
+	<time>
+		<text>Klukkan er þrettán mínútur yfir sjö</text>
+		<audio>audio/7_13.mp3</audio>
+		<hours>7</hours>
+		<minutes>13</minutes>
+	</time>
+	<time>
+		<text>Klukkan er fjórtán mínútur yfir sjö</text>
+		<audio>audio/7_14.mp3</audio>
+		<hours>7</hours>
+		<minutes>14</minutes>
+	</time>
+	<time>
+		<text>Klukkan er fimmtán mínútur yfir sjö</text>
+		<audio>audio/7_15.mp3</audio>
+		<hours>7</hours>
+		<minutes>15</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og sex mínútur yfir ellefu.</text>
+		<audio>audio/11_26.mp3</audio>
+		<hours>11</hours>
+		<minutes>26</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og sjö mínútur yfir ellefu.</text>
+		<audio>audio/11_27.mp3</audio>
+		<hours>11</hours>
+		<minutes>27</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og átta mínútur yfir ellefu.</text>
+		<audio>audio/11_28.mp3</audio>
+		<hours>11</hours>
+		<minutes>28</minutes>
+	</time>	
+	<time>
+		<text>Klukkan er tuttugu og níu mínútur yfir ellefu.</text>
+		<audio>audio/11_29.mp3</audio>
+		<hours>11</hours>
+		<minutes>29</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar níu mínútur í tólf.</text>
+		<audio>audio/11_51.mp3</audio>
+		<hours>11</hours>
+		<minutes>51</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar átta mínútur í tólf.</text>
+		<audio>audio/11_52.mp3</audio>
+		<hours>11</hours>
+		<minutes>52</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar sjö mínútur í tólf.</text>
+		<audio>audio/11_53.mp3</audio>
+		<hours>11</hours>
+		<minutes>53</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar sex mínútur í tólf.</text>
+		<audio>audio/11_54.mp3</audio>
+		<hours>11</hours>
+		<minutes>54</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar fimm mínútur í tólf.</text>
+		<audio>audio/11_55.mp3</audio>
+		<hours>11</hours>
+		<minutes>55</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og níu mínútur í eitt.</text>
+		<audio>audio/12_31.mp3</audio>
+		<hours>12</hours>
+		<minutes>31</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og átta mínútur í eitt.</text>
+		<audio>audio/12_32.mp3</audio>
+		<hours>12</hours>
+		<minutes>32</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og sjö mínútur í eitt.</text>
+		<audio>audio/12_33.mp3</audio>
+		<hours>12</hours>
+		<minutes>33</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og sex mínútur í eitt.</text>
+		<audio>audio/12_34.mp3</audio>
+		<hours>12</hours>
+		<minutes>34</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og fimm mínútur í eitt.</text>
+		<audio>audio/12_35.mp3</audio>
+		<hours>12</hours>
+		<minutes>35</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og eina mínúta yfir þrjú.</text>
+		<audio>audio/3_21.mp3</audio>
+		<hours>3</hours>
+		<minutes>21</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og tvær mínútur yfir þrjú.</text>
+		<audio>audio/3_22.mp3</audio>
+		<hours>3</hours>
+		<minutes>22</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og þrjár mínútur yfir þrjú.</text>
+		<audio>audio/3_23.mp3</audio>
+		<hours>3</hours>
+		<minutes>23</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og fjórar mínútur yfir þrjú.</text>
+		<audio>audio/3_24.mp3</audio>
+		<hours>3</hours>
+		<minutes>24</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu og fimm mínútur yfir þrjú.</text>
+		<audio>audio/3_25.mp3</audio>
+		<hours>3</hours>
+		<minutes>25</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar nítján mínútur í fjögur.</text>
+		<audio>audio/3_41.mp3</audio>
+		<hours>3</hours>
+		<minutes>41</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar átján mínútur í fjögur.</text>
+		<audio>audio/3_42.mp3</audio>
+		<hours>3</hours>
+		<minutes>42</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar sautján mínútur í fjögur.</text>
+		<audio>audio/3_43.mp3</audio>
+		<hours>3</hours>
+		<minutes>43</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar sextán mínútur í fjögur.</text>
+		<audio>audio/3_44.mp3</audio>
+		<hours>3</hours>
+		<minutes>44</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar fimmtán mínútur í fjögur.</text>
+		<audio>audio/3_45.mp3</audio>
+		<hours>3</hours>
+		<minutes>45</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar fjórtán mínútur í sex.</text>
+		<audio>audio/5_46.mp3</audio>
+		<hours>5</hours>
+		<minutes>46</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar þrettán mínútur í sex.</text>
+		<audio>audio/5_47.mp3</audio>
+		<hours>5</hours>
+		<minutes>47</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tólf mínútur í sex.</text>
+		<audio>audio/5_48.mp3</audio>
+		<hours>5</hours>
+		<minutes>48</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar ellefu mínútur í sex.</text>
+		<audio>audio/5_49.mp3</audio>
+		<hours>5</hours>
+		<minutes>49</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tíu mínútur í sex.</text>
+		<audio>audio/5_50.mp3</audio>
+		<hours>5</hours>
+		<minutes>50</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og fjórar mínútur í átta.</text>
+		<audio>audio/7_36.mp3</audio>
+		<hours>7</hours>
+		<minutes>36</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og þrjár mínútur í átta.</text>
+		<audio>audio/7_37.mp3</audio>
+		<hours>7</hours>
+		<minutes>37</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og tvær mínútur í átta.</text>
+		<audio>audio/7_38.mp3</audio>
+		<hours>7</hours>
+		<minutes>38</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu og eina mínútu í átta.</text>
+		<audio>audio/7_39.mp3</audio>
+		<hours>7</hours>
+		<minutes>39</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tuttugu mínútur í átta.</text>
+		<audio>audio/7_40.mp3</audio>
+		<hours>7</hours>
+		<minutes>40</minutes>
+	</time>
+	<time>
+		<text>Klukkan er sextán mínútur yfir níu.</text>
+		<audio>audio/9_16.mp3</audio>
+		<hours>9</hours>
+		<minutes>16</minutes>
+	</time>
+	<time>
+		<text>Klukkan er sautján mínútur yfir níu.</text>
+		<audio>audio/9_17.mp3</audio>
+		<hours>9</hours>
+		<minutes>17</minutes>
+	</time>
+	<time>
+		<text>Klukkan er átján mínútur yfir níu.</text>
+		<audio>audio/9_18.mp3</audio>
+		<hours>9</hours>
+		<minutes>18</minutes>
+	</time>
+	<time>
+		<text>Klukkan er nítján mínútur yfir níu.</text>
+		<audio>audio/9_19.mp3</audio>
+		<hours>9</hours>
+		<minutes>19</minutes>
+	</time>
+	<time>
+		<text>Klukkan er tuttugu mínútur yfir níu.</text>
+		<audio>audio/9_20.mp3</audio>
+		<hours>9</hours>
+		<minutes>20</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar fjórar mínútur í tíu.</text>
+		<audio>audio/9_56.mp3</audio>
+		<hours>9</hours>
+		<minutes>56</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar þrjár mínútur í tíu.</text>
+		<audio>audio/9_57.mp3</audio>
+		<hours>9</hours>
+		<minutes>57</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar tvær mínútur í tíu.</text>
+		<audio>audio/9_58.mp3</audio>
+		<hours>9</hours>
+		<minutes>58</minutes>
+	</time>
+	<time>
+		<text>Klukkuna vantar eina mínútu í tíu.</text>
+		<audio>audio/9_59.mp3</audio>
+		<hours>9</hours>
+		<minutes>59</minutes>
+	</time>
+</times>
