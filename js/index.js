@@ -40,16 +40,18 @@ function startDigitalClock() {
 
 function getDigitalTimeString() { // let's get a HH:MM:SS timestring
 	var date = new Date();
+	
 	var seconds = date.getSeconds();
 	var minutes = date.getMinutes();
 	var hours = date.getHours();
+	
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
 	if (minutes < 10) {
 		minutes = "0" + minutes;
 	}
-	if (hours == "0") hours = "00";
+	if (String(hours).length == 1) hours = "0" + hours; // from 00, 01, .. to 23
 	return hours+":"+minutes+":"+seconds;
 }
 
