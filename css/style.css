@@ -1,5 +1,12 @@
 body {
-  margin: 0;
+	margin: 0;
+	/* so text can't be selected etc: */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .container {
@@ -385,4 +392,10 @@ body {
 #settings-radio-buttonset1 span, #settings-radio-buttonset2 span {
 	padding:10px;
 	width:120px;
+}
+
+#mms-logo {
+	width:300px;
+	padding-top:10px;
+	padding-left: 70px;
 }

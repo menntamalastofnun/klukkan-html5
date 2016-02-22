@@ -117,18 +117,21 @@ function digitalClockAnimateWrongAnswer() {
 function userDragClock() { // dragging functionality:
 	var isDragging = false;
 	
+	// let's try having this here so we can stop it and play it from everywhere below:
+	var audio_drag_loop = new Audio('media/audio/clock_set_drag.mp3'); 
+	
 	$(".clock")
 	.mousedown(function(e) {
 		isDragging = true;
 		// for mouse pointer:
 		$('.clock').addClass("grabbing");
 		$('.clock').removeClass("grab");
-		clockDraggingSound();
+		clockDraggingSound(audio_drag_loop);
 		
 	})
 	.mousemove(function(e) {
-		if(isDragging) {
 			var x = e.pageX;
+		if(isDragging) {
 			var y = e.pageY;
 			xyToDegrees(x, y);
 		}
@@ -138,13 +141,13 @@ function userDragClock() { // dragging functionality:
 		// for mouse pointer:
 		$('.clock').addClass("grab");
 		$('.clock').removeClass("grabbing");
-		clockDragEndSound();
+		clockDragEndSound(audio_drag_loop);
 	});
 	
 	// for mobile/tablets:
 	// (No need to add mouse-pointer: grabbing here.)
 	$(".clock").on("touchstart", function() {
-		clockDraggingSound();
+		clockDraggingSound(audio_drag_loop);
 	});
 	$(".clock").on("touchmove", function(ev){
 		var e = ev.originalEvent;
@@ -156,7 +159,7 @@ function userDragClock() { // dragging functionality:
 		}
 	});
 	$(".clock").on("touchend", function() {
-		clockDragEndSound();
+		clockDragEndSound(audio_drag_loop);
 	});
 	
 	// try to prevent ipad scrolling
@@ -165,17 +168,20 @@ function userDragClock() { // dragging functionality:
 	}
 }
 
-function clockDraggingSound() {
-	var audio = new Audio('media/audio/clock_set_start.mp3');
-	audio.addEventListener('ended', function() {
-		// ideally we should play this on a loop until dragging is stopped?
-		var audio_drag = new Audio('media/audio/clock_set_drag.mp3');
-		audio_drag.play();
-	});
-	audio.play();
+function clockDraggingSound(audio_drag_loop) {
+	var audio_drag_start = new Audio('media/audio/clock_set_start.mp3');
+	audio_drag_start.play();
+	// let's loop the audio_drag until clockDragEndSound() is called
+	audio_drag_loop.addEventListener('ended', function() {
+		this.currentTime = 0;
+		this.play();
+	}, false);
+	audio_drag_loop.play();
 }
 
-function clockDragEndSound() {
+function clockDragEndSound(audio_drag_loop) {
+	audio_drag_loop.pause();
+	audio_drag_loop.currentTime = 0;
 	var audio = new Audio('media/audio/clock_set_stop.mp3');
 	audio.play();
 }
