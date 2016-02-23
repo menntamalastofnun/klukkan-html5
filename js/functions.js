@@ -119,6 +119,12 @@ function userDragClock() { // dragging functionality:
 	
 	// let's try having this here so we can stop it and play it from everywhere below:
 	var audio_drag_loop = new Audio('media/audio/clock_set_drag.mp3'); 
+	// to change loop volume according to mouse/touch speed:
+	var lastmousex=-1; 
+	var lastmousey=-1;
+	var lastmousetime;
+	var mousetravel = 0;
+	
 	
 	$(".clock")
 	.mousedown(function(e) {
@@ -130,10 +136,18 @@ function userDragClock() { // dragging functionality:
 		
 	})
 	.mousemove(function(e) {
-			var x = e.pageX;
 		if(isDragging) {
+			var x = e.pageX;
 			var y = e.pageY;
 			xyToDegrees(x, y);
+			
+			// change volume depending on speed
+			if (lastmousex > -1) {
+				mousetravel = Math.max( Math.abs(x-lastmousex), Math.abs(y-lastmousey) );
+			}
+			audio_drag_loop.volume = Math.min(1, ((mousetravel) / 5));
+			lastmousex = x;
+			lastmousey = y;
 		}
 	 })
 	.mouseup(function() {
@@ -156,6 +170,14 @@ function userDragClock() { // dragging functionality:
 			var x = touch.pageX;
 			var y = touch.pageY;
 			xyToDegrees(x, y);
+			
+			// change volume depending on speed
+			if (lastmousex > -1) {
+				mousetravel = Math.max( Math.abs(x-lastmousex), Math.abs(y-lastmousey) );
+			}
+			audio_drag_loop.volume = Math.min(1, ((mousetravel) / 5));
+			lastmousex = x;
+			lastmousey = y;
 		}
 	});
 	$(".clock").on("touchend", function() {
