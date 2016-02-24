@@ -1,3 +1,11 @@
+function changeLoaderPercentage (percent) {
+	var loader = $('#loading-progress-bar');
+	loader.attr('aria-valuenow', percent);
+	percent +="%";
+	loader.html(percent);
+	loader.css('width', percent);
+}
+
 function rotateDegrees(element, degrees) {
 	$(element).css({
 		'-webkit-transform' 		: 'rotateZ('+ degrees +'deg)',
@@ -146,6 +154,7 @@ function userDragClock() { // dragging functionality:
 				mousetravel = Math.max( Math.abs(x-lastmousex), Math.abs(y-lastmousey) );
 			}
 			audio_drag_loop.volume = Math.min(1, ((mousetravel) / 5));
+			// audio_drag_loop.playbackRate = Math.min(2, (mousetravel/5)); // make it sound faster/slower?
 			lastmousex = x;
 			lastmousey = y;
 		}

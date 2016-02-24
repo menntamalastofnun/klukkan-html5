@@ -1,9 +1,64 @@
 /*
 A clock that walks.
-From: cssanimation.rocks/clocks
+Parts of code are from: cssanimation.rocks/clocks
 */
 
 $(document).ready( function () { 
+	enableSettingsButton();
+	
+	preloadPage();
+});
+
+function preloadPage() {
+	$('#maingame-container').hide();
+
+	soundManager.onready( function() {
+		var loader = new PxLoader();
+		
+		// images to preload:
+		var PRELOAD_IMG_BTN = new Array();
+		for(i = 0; i<5; i++ ) {
+			PRELOAD_IMG_BTN[i] = loader.addImage('media/img/button'+(i+1)+'.png');
+		}
+		var PRELOAD_IMG_LOGO = loader.addImage('media/img/logo/logo_bw.png');
+		var PRELOAD_IMG_CPU_CLOCK = loader.addImage('media/img/tolvu-ur-stort.png');
+		var PRELOAD_IMG_CLOCKFACE = loader.addImage('media/img/skifu-klukka-stor.png');
+		// sounds to preload:
+		var PRELOAD_SOUNDS_TIKTOK = new Array();
+		for (i = 0; i<6; i++) {
+			// tiktok+i is used as the SoundManager2 soundID here:
+			PRELOAD_SOUNDS_TIKTOK[i] = loader.addSound('tiktok'+i, 'media/audio/clock_tick_'+(i+1)+'.mp3') 
+		}
+		
+		// callback that runs every time an image/sound loads 
+		loader.addProgressListener(function(e) { 
+			// the event provides stats on the number of completed items 
+			var percent_completed = Math.floor(100*(e.completedCount / e.totalCount));
+			changeLoaderPercentage( percent_completed );
+		}); 
+
+		// callback that will be run once every item is ready 
+		loader.addCompletionListener(function() { 
+			$('#maingame-container').show();
+			$('#loading-container').hide();
+			// let's put our images in their places
+			// REWRITE: more elegant code to somehow loop through all loaded images and storing the css selector with them in the lines above.
+			for(i = 0; i<5; i++) {
+				$('#img-btn'+(i+1)).attr("src", $(PRELOAD_IMG_BTN[i]).attr("src"));
+			}
+			$('.clockface-img').attr("src", $(PRELOAD_IMG_CLOCKFACE).attr("src"));
+			$('.cpu-clock-img').attr("src", $(PRELOAD_IMG_CPU_CLOCK).attr("src"));
+			$('#mms-logo').attr("src", $(PRELOAD_IMG_LOGO).attr("src"));
+			
+			startGame();
+		}); 
+		
+		// begin downloading images + sounds
+		loader.start(); 
+	});
+}
+
+function startGame() {
 	workaroundMakeMobileLinksWork();
 
 	startDigitalClock();
@@ -14,21 +69,18 @@ $(document).ready( function () {
 	
 	// Start the seconds container moving
 	moveSecondHand();
-	// Set the intial minute hand container transition, and then each subsequent step
+	// Set the initial minute hand container transition, and then each subsequent step
 	setUpMinuteHand();
 	
-	enableSettingsButton();
-	
 	playClockTikTok();
-});
+}
 
 function playClockTikTok() {
-	var audio = new Audio('media/audio/clock_tick_'+ getRandomInt(1,7) +'.mp3');
-	audio.addEventListener('ended', function() {
-		this.src = 'media/audio/clock_tick_'+ getRandomInt(1,7) +'.mp3'; // changing the clock ticking audio
-		this.play();
+	soundManager.play('tiktok'+getRandomInt(0,6), {
+		onfinish: function() {
+			playClockTikTok(); // omg I'm thinking in recursive
+		}
 	});
-	audio.play();
 }
 
 function startDigitalClock() {
