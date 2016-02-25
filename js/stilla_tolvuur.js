@@ -1,4 +1,15 @@
 $(document).ready( function () { 
+	enableSettingsButton();
+	$('#dialog input[type=radio]').on('change', function() {
+		getNextQuestion();
+	});
+	
+	preloadPage(); // calls preloader in functions.js & then startGame() below
+});
+
+function startGame() {
+	initPreloadedImgs();
+	
 	workaroundMakeMobileLinksWork();
 
 	$('.seconds-container').hide();
@@ -60,12 +71,7 @@ $(document).ready( function () {
 			}
 		}
 	});
-	
-	enableSettingsButton();
-	$('#dialog input[type=radio]').on('change', function() {
-		getNextQuestion();
-	});
-});
+}
 
 function getNextQuestion() {
 	$('#cpu-clock-time-minutes').html("_____"); // clear user-answer box with _ _ _ _ _

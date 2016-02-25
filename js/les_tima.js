@@ -5,6 +5,17 @@ var turned_full_circles = 0;
 var lastMinute = 0;
 
 $(document).ready( function () { 
+	enableSettingsButton();
+	$('#dialog input[type=radio]').on('change', function() {
+		getNextQuestion();
+	});
+	
+	preloadPage(); // calls preloader in functions.js & then startGame() below
+});
+
+function startGame() {
+	initPreloadedImgs();
+	
 	workaroundMakeMobileLinksWork();
 
 	$('.seconds-container').hide();
@@ -25,13 +36,7 @@ $(document).ready( function () {
 		var audio = new Audio("media/"+$('#play-sound-again').attr("data-audio-link"));
 		audio.play();
 	});
-	
-	enableSettingsButton();
-	$('#dialog input[type=radio]').on('change', function() {
-		getNextQuestion();
-	});
-});
-
+}
 function getNextQuestion() {
 	// XML with text, audio, hours, minutes:
 	var settings_radio = $('#dialog :checked').attr("id");

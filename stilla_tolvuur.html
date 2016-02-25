@@ -11,6 +11,11 @@
 		<script src="lib/jquery.min.js"></script>
 		<script src="lib/jquery-ui/jquery-ui.min.js"></script>
 		<script src="lib/jquery.xml2json.js"></script>
+		<script type="text/javascript" src="lib/PxLoader/PxLoader.js"></script>
+		<script type="text/javascript" src="lib/PxLoader/PxLoaderImage.js"></script> 
+		<script type="text/javascript" src="lib/soundManager2/script/soundmanager2-jsmin.js"></script> 
+		<script type="text/javascript" src="lib/PxLoader/PxLoaderSound.js"></script> 
+		<script type="text/javascript" src="lib/soundManager2/my_custom_settings.js"></script>
 		<script src="js/functions.js"></script>
 		<script src="js/stilla_tolvuur.js"></script>
 		
@@ -38,23 +43,23 @@
 			<div class="row">
 				<div class="col-md-1 col-sm-1 nopadding" id="sidemenu">
 					<a href="index.html" class="btn btn-default btn-block" role="button">
-						<img src="media/img/button1.png">
+						<img id="img-btn1">
 					</a>
 					<a href="stilla_skifuklukku.html" class="btn btn-default btn-block" role="button">
-						<img src="media/img/button2.png">
+						<img id="img-btn2">
 					</a>
 					<a href="stilla_tolvuur.html" class="btn btn-default btn-block" role="button">
-						<img src="media/img/button3.png">
+						<img id="img-btn3">
 					</a>
 					<a href="draga_tolur.html" class="btn btn-default btn-block" role="button">
-						<img src="media/img/button4.png">
+						<img id="img-btn4">
 					</a>
 					<a href="les_tima.html" class="btn btn-default btn-block" role="button">
-						<img src="media/img/button5.png">
+						<img id="img-btn5">
 					</a>
 					<!-- get it to the bottom -->
 					<button type="button" class="btn btn-default btn-block bottom" id="settings">
-						<img src="media/img/button6.png">
+						<img id="img-btn6">
 					</button>
 					<div id="dialog" title="Stillingar">
 						<p><strong>Þyngdarstig:</strong></p>
@@ -67,46 +72,23 @@
 								<label for="radio2">Þyngdarstig 2 (erfiðara)</label>
 							</div>
 						</form>
-						<!-- simplified, skipping this: 
-						<p><strong>Tímastillingar</strong></p>
-						<form>
-							<div id="settings-radio-buttonset1">
-								<input type="radio" id="radio1" name="radio" />
-								<label for="radio1">Heilir tímar</label>
-								<br>
-								<input type="radio" id="radio2" name="radio" checked="checked" />
-								<label for="radio2">Hálfir tímar</label>
-								<br>
-								<input type="radio" id="radio3" name="radio" />
-								<label for="radio3">15-mínútur</label>
-								<br>
-								<input type="radio" id="radio4" name="radio" />
-								<label for="radio4">10-mínútur</label>
-								<br>
-								<input type="radio" id="radio5" name="radio" />
-								<label for="radio5">1-mínúta</label>
-							</div>
-						</form>
-						<p><strong>Þyngdarstig</strong></p>
-						<form>
-							<div id="settings-radio-buttonset2">
-								<input type="radio" id="radio-21" name="radio" />
-								<label for="radio-21">Með hjálp</label>
-								<br>
-								<input type="radio" id="radio-22" name="radio" checked="checked" />
-								<label for="radio-22">Hjálparlaust</label>
-								<br>
-								<input type="radio" id="radio-23" name="radio" />
-								<label for="radio-23">Afrita</label>
-							</div>
-						</form> 
-						-->
 					</div>
 				</div>
-				<div class="col-md-10 col-sm-10">
+				<div class="col-md-10 col-sm-10 margin-top-alot" id="loading-container">
+					<h2>Geri klukkuna tilbúna...</h2>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%; min-width: 2em;" id="loading-progress-bar">
+							0%
+						</div>
+					</div>
+				</div>
+				<div class="col-md-10 col-sm-10" id="maingame-container">
 					<row>
-						<div class="col-md-9 col-sm-9 text-center">
-							<h1 id="gamename">Klukkan</h1>
+						<div class="col-md-12 col-sm-12 text-center">
+							<h1 id="gamename">
+								Klukkan
+								<img id="mms-logo" class="pull-right">
+							</h1>
 						</div>
 					</row>
 					<row>
@@ -116,7 +98,7 @@
 					</row>
 					<row>
 						<div class="col-md-5 col-sm-5" id="game-left-div">
-						    <img src="media/img/tolvu-ur-stort.png" class="img-responsive cpu-clock-img">
+						    <img class="img-responsive cpu-clock-img">
 						    <span id="cpu-clock-time-minutes"></span>
 							<input class="btn btn-default btn-lg digital-clock-input digital-clock-delete" type="button" value="C">
     						<input class="btn btn-default btn-lg digital-clock-input" type="button" value="1">
@@ -132,7 +114,7 @@
     						<input class="btn btn-default btn-lg digital-clock-input" type="button" value=":">
 						</div>
 						<div class="col-md-7 col-sm-7" id="game-right-div">
-							<img src="media/img/skifu-klukka-stor.png" class="img-responsive clockface-img">
+							<img class="img-responsive clockface-img">
 							<article class="clock">
     						  <div class="hours-container">
     							<div class="hours"></div>
@@ -160,7 +142,6 @@
 					</a>
 				</div>
 			</div>
-			<img id="mms-logo" src="media/img/logo/logo_bw.png" class="pull-right">
 		</div>
     </body>
 </html>

@@ -1,4 +1,10 @@
 $(document).ready( function () { 
+	preloadPage(); // calls preloader in functions.js & then startGame() below
+});
+
+function startGame() {
+	initPreloadedImgs('empty');
+	
 	workaroundMakeMobileLinksWork();
 	
 	var audio = new Audio('media/audio/draga_tolur.mp3');
@@ -50,7 +56,7 @@ $(document).ready( function () {
 			clockfaceAnimateWrongAnswer();
 		}
 	});
-});
+}
 
 function handleDrop ( target ) {
 	var audio = new Audio('media/audio/num_drop_' + getRandomInt(1,5) + '.mp3');

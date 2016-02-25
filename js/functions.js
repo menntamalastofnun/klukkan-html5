@@ -1,3 +1,99 @@
+/* preloads the page and calls startGame() on finish */
+function preloadPage() {
+	$('#maingame-container').hide();
+
+	soundManager.onready( function() {
+		var loader = new PxLoader();
+		
+		// callback that runs every time an image/sound loads 
+		loader.addProgressListener(function(e) { 
+			// the event provides stats on the number of completed items 
+			var percent_completed = Math.floor(100*(e.completedCount / e.totalCount));
+			changeLoaderPercentage( percent_completed );
+		}); 
+		
+		// preload images into cache:
+		var num_btns = 6;
+		for(i = 0; i<num_btns; i++ ) {
+			loader.addImage('media/img/button'+(i+1)+'.png');
+		}
+		var PRELOAD_IMGS_FOR_CACHE = [
+			'media/img/logo/logo_bw.png',
+			'media/img/tolvu-ur-stort.png',
+			'media/img/skifu-klukka-stor.png',
+			'media/img/skifu-klukka-stor-happy.png',
+			'media/img/skifu-klukka-stor-angry.png',
+			'media/img/empty-skifu-klukka-stor.png',
+			'media/img/empty-skifu-klukka-stor-angry.png',
+			'media/img/digitalclock-happy.png',
+			'media/img/tolvu-ur-angry.png'
+		];
+		$(PRELOAD_IMGS_FOR_CACHE).each(function(index, item) {
+			loader.addImage(item);
+		});	
+		
+		// NOTE: this is enough, we cache it here, and can call these sounds later no prob
+		var PRELOAD_SOUNDS = [
+			'stilla_skifuklukku',
+			'stilla_tolvuur',
+			'draga_tolur',
+			'clock_set_start', 
+			'clock_set_drag', 
+			'clock_set_stop', 
+			'jibbi',
+			'aejaej',
+			'clock_tick_1',
+			'clock_tick_2',
+			'clock_tick_3',
+			'clock_tick_4',
+			'clock_tick_5',
+			'clock_tick_6',
+			'digi_butt_1',
+			'digi_butt_2',
+			'digi_butt_3',
+			'num_drop_1',
+			'num_drop_2',
+			'num_drop_3',
+			'num_drop_4',
+			'num_pickup_1',
+			'num_pickup_2',
+			'num_pickup_3',
+			'num_pickup_4'
+		];
+		$(PRELOAD_SOUNDS).each(function(index, item) {
+			loader.addSound(item, 'media/audio/'+item+'.mp3');
+		});
+
+		// callback that will be run once every item is ready 
+		loader.addCompletionListener(function() { 
+			$('#maingame-container').show();
+			$('#loading-container').hide();
+			
+			startGame(); // function in each js file, not here in functions.js
+		}); 
+		
+		// begin downloading images + sounds
+		loader.start(); 
+	});
+}
+
+// optional argument: clockface
+function initPreloadedImgs(clockface) { 
+	var num_btns = 6;
+	for(i = 0; i<num_btns; i++) {
+		$('#img-btn'+(i+1)).attr("src", 'media/img/button'+(i+1)+'.png');
+	}
+	$('.cpu-clock-img').attr("src", 'media/img/tolvu-ur-stort.png');
+	$('#mms-logo').attr("src", 'media/img/logo/logo_bw.png');
+	if (typeof clockface === 'undefined') { 
+		// clockface is an optional parameter, and let's assume "normal clock" img:
+		$('.clockface-img').attr("src", 'media/img/skifu-klukka-stor.png');
+	}
+	else if (clockface == 'empty') {
+		$('.clockface-img').attr("src", 'media/img/empty-skifu-klukka-stor.png');
+	}
+}
+
 function changeLoaderPercentage (percent) {
 	var loader = $('#loading-progress-bar');
 	loader.attr('aria-valuenow', percent);
