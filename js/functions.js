@@ -362,19 +362,6 @@ function workaroundMakeMobileLinksWork() {
 		*/
 		window.location = link;
 	});
-	
-	$('#submit-answer').on('touchend', function() {
-		$('#submit-answer').click();
-	});
-	$('#submit-answer').children().on('touchend', function() {
-		$('#submit-answer').click();
-	});
-	$('#next-question').on('touchend', function() {
-		$('#next-question').click();
-	});
-	$('#next-question').children().on('touchend', function() {
-		$('#next-question').click();
-	});
 }
 
 function enableSettingsButton() {
