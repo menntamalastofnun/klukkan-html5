@@ -29,7 +29,7 @@ function startGame() {
 }
 
 function playClockTikTok() {
-	soundManager.play('clock_tick_'+getRandomInt(0,6), {
+	soundManager.play('clock_tick_'+getRandomInt(1,7), {
 		onfinish: function() {
 			playClockTikTok(); // omg I'm thinking in recursive
 		}
