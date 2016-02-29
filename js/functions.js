@@ -164,7 +164,8 @@ function clockfaceAnimateWrongAnswer() {
 	audio_wrong_answer.play();
 	$('.clock').addClass('animated shake');
 	$('.clockface-img').addClass('animated shake');
-	if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor.png") {
+	if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor.png"
+	|| $('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor-angry.png" ) {
 		// the clockface has no hours, this script is called from draga_tolur
 		$('.clockface-img').attr("src","media/img/empty-skifu-klukka-stor-angry.png");
 	}
@@ -175,7 +176,8 @@ function clockfaceAnimateWrongAnswer() {
 	setTimeout(function() {
 			$('.clock').removeClass('animated shake');
 			$('.clockface-img').removeClass('animated shake');
-			if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor-angry.png") {
+			if($('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor-angry.png"
+			|| $('.clockface-img').attr("src") == "media/img/empty-skifu-klukka-stor.png" ) {
 				// the clockface has no hours, this script is called from draga_tolur
 				$('.clockface-img').attr("src","media/img/empty-skifu-klukka-stor.png");
 			}
