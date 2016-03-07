@@ -1,8 +1,6 @@
 # klukkan-html5
 
-HTML5 educational clock game.
-
-Rewritten from a flash game, link to old game: http://vefir.nams.is/klukkan/klukkan.htm
+HTML5 educational clock game *(rewritten from a flash game)*.
 
 Link to running production version of this game: http://vefir.nams.is/klukkuleikur/
 
