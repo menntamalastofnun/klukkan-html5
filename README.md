@@ -2,7 +2,7 @@
 
 HTML5 educational clock game
 
-Link to running production version of this game: http://vefir.nams.is/klukkuleikur/
+Link to running production version: http://vefir.nams.is/klukkuleikur/
 
 __===__
 
